@@ -9,17 +9,66 @@
     <meta name="description"
         content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
     <title>Sentirse bien</title>
+
+    <link rel="shortcut icon" href="https://static-media-files-ianalytycs.sfo3.digitaloceanspaces.com/img/favicon.ico"
+        type="image/x-icon">
+    <link rel="icon" href="https://static-media-files-ianalytycs.sfo3.digitaloceanspaces.com/img/favicon.ico"
+        type="image/x-icon">
+
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{% static 'sidebar.css' %}">
 
+    <style>
+        body {
+            background-color: #fbf0e0;
+        }
+
+        .unfv-color {
+            color: #f07613;
+        }
+
+        .btn-unfv-color {
+            background-color: #f07613;
+            color: #ffffff;
+        }
+
+        .btn-outline-unfv-color {
+            color: #f07613;
+            background-color: #ffffff;
+            border: 2px solid #f07613;
+        }
+
+        .btn-outline-unfv-color:hover {
+            background-color: #f07613;
+            color: #ffffff;
+        }
+
+        .card {
+            margin-bottom: 2rem;
+            border-color: #ffffff;
+        }
+
+        .btn-unfv-color-success {
+            background-color: rgb(255, 202, 133);
+            color: #0d0d38;
+        }
+
+        .modal {
+            background-color: #f076137c;
+        }
+    </style>
 </head>
 
 <body>
+
     <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
             <i class="fas fa-bars"></i>
@@ -27,7 +76,7 @@
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
                 <div class="sidebar-brand">
-                    <a href="#">pro sidebar</a>
+                    <a href="#">Sentirse Bien</a>
                     <div id="close-sidebar">
                         <i class="fas fa-times"></i>
                     </div>
@@ -50,19 +99,7 @@
                     </div>
                 </div>
                 <!-- sidebar-header  -->
-                <div class="sidebar-search">
-                    <div>
-                        <div class="input-group">
-                            <input type="text" class="form-control search-menu" placeholder="Search...">
-                            <div class="input-group-append">
-                                <span class="input-group-text">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- sidebar-search  -->
+
                 <div class="sidebar-menu">
                     <ul>
                         <li class="header-menu">
@@ -71,110 +108,17 @@
                         <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="fa fa-tachometer-alt"></i>
-                                <span>Dashboard</span>
-                                <span class="badge badge-pill badge-warning">New</span>
+                                <span>Formularios</span>
                             </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Dashboard 1
-                                            <span class="badge badge-pill badge-success">Pro</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Dashboard 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Dashboard 3</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span>E-commerce</span>
-                                <span class="badge badge-pill badge-danger">3</span>
-                            </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Products
 
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Orders</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Credit cart</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="far fa-gem"></i>
-                                <span>Components</span>
-                            </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">General</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Panels</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Tables</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Icons</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Forms</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
                         <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="fa fa-chart-line"></i>
-                                <span>Charts</span>
+                                <span>Resultados</span>
                             </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Pie chart</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Line chart</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Bar chart</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Histogram</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="fa fa-globe"></i>
-                                <span>Maps</span>
-                            </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Google maps</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Open street map</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+
                         <li class="header-menu">
                             <span>Extra</span>
                         </li>
@@ -199,6 +143,9 @@
                         </li>
                     </ul>
                 </div>
+
+
+
                 <!-- sidebar-menu  -->
             </div>
             <!-- sidebar-content  -->
@@ -221,102 +168,810 @@
             </div>
         </nav>
         <!-- sidebar-wrapper  -->
+
         <main class="page-content">
             <div class="container-fluid">
-                <h2>Pro Sidebar</h2>
-                <hr>
-                <div class="row">
-                    <div class="form-group col-md-12">
-                        <p>This is a responsive sidebar template with dropdown menu based on bootstrap 4 framework.</p>
-                        <p> You can find the complete code on <a
-                                href="https://github.com/azouaoui-med/pro-sidebar-template" target="_blank">
-                                Github</a>, it contains more themes and background image option</p>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <iframe
-                            src="https://ghbtns.com/github-btn.html?user=azouaoui-med&repo=pro-sidebar-template&type=star&count=true&size=small"
-                            frameborder="0" scrolling="0" width="90px" height="30px"></iframe>
-                        <iframe
-                            src="https://ghbtns.com/github-btn.html?user=azouaoui-med&repo=pro-sidebar-template&type=fork&count=true&size=small"
-                            frameborder="0" scrolling="0" width="90px" height="30px"></iframe>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <div class="alert alert-success" role="alert">
-                            <h4 class="alert-heading">New !</h4>
-                            <p>New react pro sidebar library is now available on <a
-                                    href="https://www.npmjs.com/package/react-pro-sidebar" target="_blank">npm</a> <a
-                                    href="https://github.com/azouaoui-med/react-pro-sidebar" target="_blank">
-                                    <img alt="GitHub stars"
-                                        src="https://img.shields.io/github/stars/azouaoui-med/react-pro-sidebar?style=social" />
-                                </a></p>
-                            <a href="https://github.com/azouaoui-med/react-pro-sidebar" target="_blank"
-                                class="btn btn-sm btn-primary mr-2">
-                                Github</a>
-                            <a href="https://azouaoui-med.github.io/react-pro-sidebar" target="_blank"
-                                class="btn btn-sm btn-success">
-                                Demo</a>
 
-                        </div>
-
-                    </div>
-                </div>
-                <h5>More templates</h5>
-                <hr>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                        <div class="card rounded-0 p-0 shadow-sm">
-                            <img src="https://user-images.githubusercontent.com/25878302/58369568-a49b2480-7efc-11e9-9ca9-2be44afacda1.png"
-                                class="card-img-top rounded-0" alt="Angular pro sidebar">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Angular Pro Sidebar</h6>
-                                <a href="https://github.com/azouaoui-med/angular-pro-sidebar" target="_blank"
-                                    class="btn btn-primary btn-sm">Github</a>
-                                <a href="https://azouaoui-med.github.io/angular-pro-sidebar/demo/" target="_blank"
-                                    class="btn btn-success btn-sm">Preview</a>
+                    <div class="col-md-2"></div>
+
+                    <div class="form-group col-md-8">
+                        <h4 class="h4">Formularios <i class="far fa-file-alt"></i></h4>
+                        <p>A continuación contestarás los siguientes formularios para conocer el estado actual de
+                            tu salud mental. <br> <span>Al finalizarlas tendremos los resultados inmediatamente.
+                                ¡Vamos!</span></p>
+                    </div>
+                    <div class="col-md-2"></div>
+
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Ficha sociodemográfica:</h5>
+                                <a data-toggle="modal" href="#" class="btn btn-sm btn-unfv-color-success"
+                                    data-target="#staticBackdrop">Llenar ficha <i class="fa fa-tachometer-alt"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                        <div class="card rounded-0 p-0 shadow-sm">
-                            <img src="https://user-images.githubusercontent.com/25878302/58369258-33f20900-7ef8-11e9-8ff3-b277cb7ed7b4.PNG"
-                                class="card-img-top rounded-0" alt="Angular pro sidebar">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Angular Dashboard</h6>
-                                <a href="https://github.com/azouaoui-med/lightning-admin-angular" target="_blank"
-                                    class="btn btn-primary btn-sm">Github</a>
-                                <a href="https://azouaoui-med.github.io/lightning-admin-angular/demo/" target="_blank"
-                                    class="btn btn-success btn-sm">Preview</a>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Cuestionario de Salud Mental Positiva de Lluch:</h5>
+                                <a data-toggle="modal" href="#" class="btn btn-sm btn-unfv-color-success"
+                                    data-target="#staticBackdrop2">Iniciar Test <i class="fa fa-tachometer-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Escalas de Depresión Ansiedad y Estrés (DASS-21):</h5>
+                                <a data-toggle="modal" href="#" class="btn btn-sm btn-unfv-color-success"
+                                    data-target="#staticBackdrop3">Iniciar Test <i class="fa fa-tachometer-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Escala de Apoyo Social Percibido (MSPSS):</h5>
+                                <a data-toggle="modal" href="#" class="btn btn-sm btn-unfv-color-success"
+                                    data-target="#staticBackdrop4">Iniciar Test <i class="fa fa-tachometer-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Escala de Asertividad de Rathus:</h5>
+                                <a data-toggle="modal" href="#" class="btn btn-sm btn-unfv-color-success"
+                                    data-target="#staticBackdrop5">Iniciar Test <i class="fa fa-tachometer-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Escala de violencia de pareja:</h5>
+                                <a data-toggle="modal" href="#" class="btn btn-sm btn-unfv-color-success"
+                                    data-target="#staticBackdrop6">Iniciar Test <i class="fa fa-tachometer-alt"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <hr>
-
-                <footer class="text-center">
-                    <div class="mb-2">
-                        <small>
-                            © 2020 made with <i class="fa fa-heart" style="color:red"></i> by - <a target="_blank"
-                                rel="noopener noreferrer" href="https://azouaoui.netlify.com">
-                                Mohamed Azouaoui
-                            </a>
-                        </small>
-                    </div>
-                    <div>
-                        <a href="https://github.com/azouaoui-med" target="_blank">
-                            <img alt="GitHub followers"
-                                src="https://img.shields.io/github/followers/azouaoui-med?label=github&style=social" />
-                        </a>
-                        <a href="https://twitter.com/azouaoui_med" target="_blank">
-                            <img alt="Twitter Follow"
-                                src="https://img.shields.io/twitter/follow/azouaoui_med?label=twitter&style=social" />
-                        </a>
-                    </div>
-                </footer>
+                <div class="text-center">
+                    <audio controls>
+                        <!--autoplay-->
+                        <source
+                            src="https://static-media-files-ianalytycs.sfo3.digitaloceanspaces.com/audio_videos/musicaRelajante.ogg"
+                            type="audio/ogg">
+                        <source
+                            src="https://static-media-files-ianalytycs.sfo3.digitaloceanspaces.com/audio_videos/musicaRelajante.mp3"
+                            type="audio/mpeg">
+                    </audio>
+                </div>
             </div>
         </main>
         <!-- page-content" -->
     </div>
     <!-- page-wrapper -->
+
+    <!-- Modals Tests -->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">FICHA SOCIODEMOGRÁFICA:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form method="POST" autocomplete="off" id="ficha_sociodemografica">
+                        {% csrf_token %}
+
+                        <!--
+                            <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="codigo_uni">Código universitario:</label>
+                                    <input type="text" class="form-control" id="codigo_uni" required autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="universidad">Nombre de su Universidad:</label>
+                                    <input type="text" class="form-control" id="universidad" required
+                                        autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        -->
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="anio_ingreso">Año de ingreso:</label>
+                                    <input type="number" class="form-control" id="anio_ingreso" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="anio_estudio_actual">Año de estudio actual:</label>
+                                    <select class="form-control" id="anio_estudio_actual" required>
+                                        <option value="">--------------</option>
+                                        <option value="anio1">1 año</option>
+                                        <option value="anio2">2 año</option>
+                                        <option value="anio3">3 año</option>
+                                        <option value="anio4">4 año</option>
+                                        <option value="anio5">5 año</option>
+                                        <option value="anio6">6 año</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <label for="inlineRadio1">¿Es becario?</label> <br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" value="option1" required>
+                                    <label class="form-check-label" for="inlineRadio1">Sí</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input ml-4" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio2" value="option2" required>
+                                    <label class="form-check-label" for="inlineRadio2">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="facultad">Facultad:</label>
+                                    <select class="form-control" id="facultad" required>
+                                        <option value="">--------------</option>
+                                        <option value="fac_administracion">Administración</option>
+                                        <option value="fac_arquitectura">Arquitectura y Urbanismo</option>
+                                        <option value="fac_economicas">Ciencias Económicas</option>
+                                        <option value="fac_financieras">Ciencias Financieras y Contables</option>
+                                        <option value="fac_matematicas">Ciencias Naturales y Matemáticas</option>
+                                        <option value="fac_sociales">Ciencias Sociales</option>
+                                        <option value="fac_derecho">Derecho y Ciencia Política</option>
+                                        <option value="fac_educacion">Educación</option>
+                                        <option value="fac_humanidades">Humanidades</option>
+                                        <option value="fac_civil">Ingeniería Civil</option>
+                                        <option value="fac_electronica">Ingeniería Electrónica e Informática</option>
+                                        <option value="fac_ambiental">Ingeniería Geográfica, Ambiental y Ecoturismo
+                                        </option>
+                                        <option value="fac_industrial">Ingeniería Industrial y de Sistemas</option>
+                                        <option value="fac_medicina">Medicina</option>
+                                        <option value="fac_alimentarias">Oceanografía, Pesquería, Ciencias Alimentarias
+                                            y Acuicultura</option>
+                                        <option value="fac_odontologia">Odontología</option>
+                                        <option value="fac_psicologia">Psicología</option>
+                                        <option value="fac_tecnologia">Tecnología Médica</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="escuela">Escuela:</label>
+                                    <select class="form-control" id="escuela" required>
+                                        <option value="">--------------</option>
+                                    </select>
+                                    <small>Debe elegir antes la Facultad</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="sexo">Sexo:</label>
+                                    <select class="form-control" id="sexo" required>
+                                        <option value="">--------------</option>
+                                        <option value="mujer">Mujer</option>
+                                        <option value="hombre">Hombre</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="genero">Género:</label>
+                                    <select class="form-control" id="genero" required>
+                                        <option value="">--------------</option>
+                                        <option value="heterosexual">Heterosexual</option>
+                                        <option value="homosexual">Homosexual</option>
+                                        <option value="lesbiana">Lesbiana</option>
+                                        <option value="gay">Gay</option>
+                                        <option value="transexual">Transexual</option>
+                                        <option value="bisexual">Bisexual</option>
+                                        <option value="intersexual">Intersexual</option>
+                                        <option value="queer">Queer</option>
+                                        <option value="otros">Otros</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="estado_civil">Estado civil:</label>
+                                    <select class="form-control" id="estado_civil" required>
+                                        <option value="">--------------</option>
+                                        <option value="soltero">Soltero</option>
+                                        <option value="soltero_hijos">Soltero con hijos</option>
+                                        <option value="conviviente">Conviviente</option>
+                                        <option value="conviviente_hijos">Conviviente con hijos</option>
+                                        <option value="casado">Casado</option>
+                                        <option value="casado_hijos">Casado con hijos</option>
+                                        <option value="divorciado">Divorciado</option>
+                                        <option value="pareja_actual">Pareja actual</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5>Lugar de Nacimiento:</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="departarmento_nacimiento">Departamento:</label>
+                                    <select class="form-control" id="departarmento_nacimiento" required>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="provincia_nacimiento">Provincia:</label>
+                                    <select class="form-control" id="provincia_nacimiento" required>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="distrito_nacimiento">Distrito:</label>
+                                    <select class="form-control" id="distrito_nacimiento" required>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5>Lugar de Residencia:</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="departarmento_residencia">Departamento:</label>
+                                    <select class="form-control" id="departarmento_residencia" required>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="provincia_residencia">Provincia:</label>
+                                    <select class="form-control" id="provincia_residencia" required>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="distrito_residencia">Distrito:</label>
+                                    <select class="form-control" id="distrito_residencia" required>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="institucion_procedencia">Colegio de procedencia:</label>
+                                    <select class="form-control" id="institucion_procedencia" required>
+                                        <option value="">--------------</option>
+                                        <option value="privado">Privado</option>
+                                        <option value="estatal">Estatal</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="nacionalidad">Nacionalidad:</label>
+                                    <select class="form-control" id="nacionalidad" required>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="tiempo_residencia">Tiempo en lugar de residencia (en años):</label>
+                                    <input type="number" class="form-control" id="tiempo_residencia" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="religion">Religión:</label>
+                                    <select class="form-control" id="religion" required>
+                                        <option value="">--------------</option>
+                                        <option value="catolica">Católica</option>
+                                        <option value="adventista">Adventista</option>
+                                        <option value="agnostico">Agnóstico</option>
+                                        <option value="ateo">Ateo</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="nivel_socioeconomico">Nivel socioeconómico:</label>
+                                    <select class="form-control" id="nivel_socioeconomico" required>
+                                        <option value="">--------------</option>
+                                        <option value="alto">Alto</option>
+                                        <option value="medio_alto">Medio/alto</option>
+                                        <option value="medio">Medio</option>
+                                        <option value="medio_bajo">Medio/bajo</option>
+                                        <option value="bajo">Bajo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="vives_solo">¿Vives solo(a)?:</label>
+                                    <select class="form-control" id="vives_solo" required>
+                                        <option value="">--------------</option>
+                                        <option value="si">Sí</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="religion">¿En la situación de aislamiento vive con?</label>
+                                    <select class="form-control" id="religion" required>
+                                        <option value="">--------------</option>
+                                        <option value="solo">Solo (a)</option>
+                                        <option value="pareja">Con mi pareja</option>
+                                        <option value="familia">Con mi familia (padres y hermanos)</option>
+                                        <option value="amigos">Con amigos</option>
+                                        <option value="hermanos">Con mis hermanos</option>
+                                        <option value="parientes">Con parientes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label for="vive_actualmente">¿Con cuántas personas viven actualmente?
+                                        (contándote)</label>
+                                    <input type="number" class="form-control" id="vive_actualmente" required>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <h5>SITUACIÓN LABORAL</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="religion">Tu situación ocupacional:</label>
+                                    <select class="form-control" id="religion" required>
+                                        <option value="">--------------</option>
+                                        <option value="contrato_fijo">Trabajo con contrato fijo</option>
+                                        <option value="contrato_temporal">Trabajo con contrato temporal</option>
+                                        <option value="independiente">Independiente</option>
+                                        <option value="sin_trabajo">Sin trabajo</option>
+                                        <option value="otro">Otro tipo de trabajo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="situacion_de_trabajo">Situación de trabajo:</label>
+                                    <select class="form-control" id="situacion_de_trabajo" required>
+                                        <option value="">--------------</option>
+                                        <option value="no_trabajo">No trabajo</option>
+                                        <option value="parcial_in_casa">Tiempo parcial desde casa</option>
+                                        <option value="parcial_out_casa">Tiempo parcial fuera de casa</option>
+                                        <option value="completo_in_casa">Tiempo completo desde casa</option>
+                                        <option value="complejo_out_casa">Tiempo completo fuera de casa</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="voluntariado">Horas de apoyo en voluntariado:</label>
+                                    <input type="number" class="form-control" id="voluntariado" required>
+                                    <small>Cero si no hace voluntariado</small>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <span style="font-weight: bold;">Durante los 2 últimos meses ha tenido un problema:</span>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="fisico">Físico (cuál):</label>
+                                    <input type="text" class="form-control" id="fisico" maxlength="255">
+                                    <small>Si no tuvo ninguno, dejarlo en blanco</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="psicologica">Psicológica (cuál):</label>
+                                    <input type="text" class="form-control" id="psicologica" maxlength="255">
+                                    <small>Si no tuvo ninguno, dejarlo en blanco</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="atencion_psicologica">En los últimos 3 meses tuvo una atención
+                                        psicológica:</label>
+                                    <select class="form-control" id="atencion_psicologica" required>
+                                        <option value="">--------------</option>
+                                        <option value="si">Sí</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="sintomas_covid_19">Presentaste síntomas de COVID-19:</label>
+                                    <select class="form-control" id="sintomas_covid_19" required>
+                                        <option value="">--------------</option>
+                                        <option value="si">Sí</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="covid_19">Presento algún familiar síntomas de COVID-19:</label>
+                                    <select class="form-control" id="covid_19" required>
+                                        <option value="">--------------</option>
+                                        <option value="si">Sí</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="fallecimiento">Tuviste fallecimiento de un:</label>
+                                    <select class="form-control" id="fallecimiento" required>
+                                        <option value="">--------------</option>
+                                        <option value="familiar">Familiar</option>
+                                        <option value="amigo">Amigo</option>
+                                        <option value="conocido">Conocido</option>
+                                        <option value="ninguno">Ninguno</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="fallecimiento_tiempo">El fallecimiento, hace cuánto tiempo fue
+                                        (años):</label>
+                                    <input type="number" class="form-control" id="fallecimiento_tiempo">
+                                    <small>Si no es el caso, dejarlo en blanco.</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="clases_virtuales">¿Consideras haberte adaptado a las clases
+                                        virtuales?:</label>
+                                    <select class="form-control" id="clases_virtuales" required>
+                                        <option value="">--------------</option>
+                                        <option value="si">Sí</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-sm btn-outline-unfv-color">Enviar ficha
+                                <i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop2" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Cuestionario de Salud Mental Positiva de Lluch:
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="text-center">
+                            <span style="font-size: 1.3rem;">¿Es correcto afirmar que las nuevas tecnologías estresan
+                                mucho
+                                más que las tradicionales?</span>
+                            <hr>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInlineTest2" name="test2"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInlineTest2">Muy poco</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline2Test2" name="test2"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline2Test2">Poco</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline3Test2" name="test2"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline3Test2">Medio</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline4Test2" name="test2"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline4Test2">Alto</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline5Test2" name="test2"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline5Test2">Muy Alto</label>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-sm btn-outline-unfv-color">Enviar respuesta
+                                <i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop3" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Escalas de Depresión Ansiedad y Estrés (DASS-21):
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="text-center">
+                            <span style="font-size: 1.3rem;">¿Es correcto afirmar que las nuevas tecnologías estresan
+                                mucho
+                                más que las tradicionales?</span>
+                            <hr>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline1Test3" name="test3"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline1Test3">Muy poco</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline2Test3" name="test3"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline2Test3">Poco</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline3Test3" name="test3"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline3Test3">Medio</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline4Test3" name="test3"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline4Test3">Alto</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline5Test3" name="test3"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline5Test3">Muy Alto</label>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-sm btn-outline-unfv-color">Enviar respuesta
+                                <i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop4" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Escala de Apoyo Social Percibido (MSPSS):</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="text-center">
+                            <span style="font-size: 1.3rem;">¿Es correcto afirmar que las nuevas tecnologías estresan
+                                mucho
+                                más que las tradicionales?</span>
+                            <hr>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline1Test6" name="test4"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline1Test6">Muy poco</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline2Test6" name="test4"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline2Test6">Poco</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline3Test6" name="test4"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline3Test6">Medio</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline4Test6" name="test4"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline4Test6">Alto</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline5Test6" name="test4"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline5Test6">Muy Alto</label>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-sm btn-outline-unfv-color">Enviar respuesta
+                                <i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop5" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Escala de Asertividad de Rathus:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="text-center">
+                            <span style="font-size: 1.3rem;">¿Es correcto afirmar que las nuevas tecnologías estresan
+                                mucho
+                                más que las tradicionales?</span>
+                            <hr>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline1Test7" name="test5"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline1Test7">Muy poco</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline2Test7" name="test5"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline2Test7">Poco</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline3Test7" name="test5"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline3Test7">Medio</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline4Test7" name="test5"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline4Test7">Alto</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline5Test7" name="test5"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline5Test7">Muy Alto</label>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-sm btn-outline-unfv-color">Enviar respuesta
+                                <i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop6" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Escala de violencia de pareja:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="text-center">
+                            <span style="font-size: 1.3rem;">¿Es correcto afirmar que las nuevas tecnologías estresan
+                                mucho
+                                más que las tradicionales?</span>
+                            <hr>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline1Test8" name="test6"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline1Test8">Muy poco</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline2Test8" name="test6"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline2Test8">Poco</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline3Test8" name="test6"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline3Test8">Medio</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline4Test8" name="test6"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline4Test8">Alto</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline ml-4">
+                                <input type="radio" id="customRadioInline5Test8" name="test6"
+                                    class="custom-control-input" required>
+                                <label class="custom-control-label" for="customRadioInline5Test8">Muy Alto</label>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-sm btn-outline-unfv-color">Enviar respuesta
+                                <i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -325,8 +980,9 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
+    <script src="{% static 'dataforms.js' %}"></script>
     <script src="{% static 'sidebar.js' %}"></script>
-
+    <script src="{% static 'fac_escuelas.js' %}"></script>
 </body>
 
 </html>
