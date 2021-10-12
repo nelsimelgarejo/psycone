@@ -131,25 +131,32 @@
     <div class="full-screen-container">
         <div class="login-container">
             <h3 class="login-title">Cambiar contraseña</h3>
-            <form method="POST">
+            <form method="POST" autocomplete="off">
                 {% csrf_token %}
                 <ul class="close" >
                     <li>Mínimo 8 caracteres</li>
-                    <li>No debe ser igual que código universitario</li>
+                    <li>No debe ser igual a su código o correo</li>
                 </ul>
-
+                <input type="text" name="username" value="{{username}}" hidden>
+                <input type="email" name="email" value="{{email}}" hidden>
                 <div class="input-group">
                     <label>Nueva contraseña:</label>
-                    <input type="text" name="username" required autocomplete="off">
+                    <input type="text" name="password1" name="username" required autocomplete="off">
                 </div>
                 <div class="input-group">
                     <label>Repetir nueva contraseña:</label>
-                    <input type="text" required>
-                    
+                    <input type="text" name="password2" required>
+                </div>
+                <div class="input-group">
+                    <label>Nombres:</label>
+                    <input type="text" name="first_name" required>
+                </div>
+                <div class="input-group">
+                    <label>Apellidos:</label>
+                    <input type="text" name="last_name" required>
                 </div>
                 <button type="submit" class="login-button">Cambiar contraseña <i class="fas fa-file-import"></i></button>
             </form>
-
         </div>
     </div>
 

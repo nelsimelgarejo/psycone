@@ -4,12 +4,32 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+TIPOS_USUARIOS = (
+    ('admin', 'Admin'),
+    ('estudiante', 'Estudiante'),
+    ('docente', 'Docente'),
+    ('administrativo', 'Personal administrativo')
+)
+
+TIPOS_UNVIERSIDADES = (
+    ('unfv', 'Universidad Nacional Federico Villareal'),
+    ('red_acacia', 'Red Acacia'),
+)
+
 class Perfil(models.Model):
     id = models.UUIDField(primary_key=True, editable=False)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     codigo_universitario = models.CharField(max_length=20, blank=True, null=True)
-    universidad = models.CharField(max_length=255, blank=True, null=True)
-    tipo_usuario = models.CharField(max_length=20, blank=True, null=True)
+    universidad = models.CharField(choices=TIPOS_UNVIERSIDADES, max_length=20, blank=True, null=True)
+    tipo_usuario = models.CharField(choices=TIPOS_USUARIOS, max_length=20, blank=True, null=True)
+    telefono = models.CharField(max_length=20, blank=True, null=True)
+    facebook = models.URLField( blank=True, null=True)
+    instagram = models.URLField(blank=True, null=True)
+    linkeding = models.URLField(blank=True, null=True)
+
+    estado = models.BooleanField(default=True)
+    creado = models.DateTimeField(auto_now_add=True)
+    actualizado = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.usuario.username}"
@@ -58,6 +78,10 @@ class FichaSociodemografica(models.Model):
     tiempo_de_fallecimiento = models.PositiveIntegerField(default=0)
     adaptado_clases_virtuales = models.BooleanField(default=False) 
 
+
+    estado = models.BooleanField(default=True)
+    creado = models.DateTimeField(auto_now_add=True)
+    actualizado = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.perfil.codigo_universitario}"

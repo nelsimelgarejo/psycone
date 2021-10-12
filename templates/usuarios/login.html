@@ -164,34 +164,61 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST">
+                    <form method="POST" id="activar_cuenta" autocomplete="off">
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="codigoUNFV">Código universitario:</label>
-                            <input type="text" class="form-control" id="codigoUNFV"
-                                aria-describedby="emailHelp" required>
-                            <small id="emailHelp" class="form-text text-muted">Debe ingresar su código universitario.</small>
+                            <input type="text" name="username" class="form-control" id="codigoUNFV" aria-describedby="emailHelp"
+                                required>
+                            <small id="emailHelp" class="form-text text-muted">Debe ingresar su código
+                                universitario.</small>
                         </div>
                         <div class="form-group">
                             <label for="emailUNFV">Correo electrónico universitario (@unfv.edu.pe):</label>
-                            <input type="email" class="form-control" id="emailUNFV" required>
-                            <small id="emailHelp" class="form-text text-muted">Le enviaremos un correo de autenticación.</small>
+                            <input type="email" name="email" class="form-control" id="emailUNFV" required>
+                            <small id="emailHelp" class="form-text text-muted">Le enviaremos un correo de
+                                autenticación.</small>
                         </div>
                         <div class="text-right">
                             <button type="submit" class="btn btn-outline-unfv-color">Activar <i
-                                class="far fa-paper-plane"></i></button>
+                                    class="far fa-paper-plane"></i></button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
+
+    <script>
+        $('#activar_cuenta').submit(function (e) {
+            e.preventDefault();
+            console.log('Enviando formulario');
+            $form = $(this)
+            var formData = new FormData(this);
+            $.ajax({
+                url: '{% url "activar_cuenta" %}',
+                type: 'POST',
+                data: formData,
+                success: function (response) {
+                    if (response.error) {
+
+                    }
+                    else {
+                        console.log('Enviado súper bien');
+                        $('#activar_cuenta')[0].reset();
+                    }
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+        });
+    </script>
 </body>
 
 </html>

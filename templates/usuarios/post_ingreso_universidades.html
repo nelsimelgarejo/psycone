@@ -107,43 +107,8 @@
         <div class="container">
 
             <div class="row text-center" style="margin-top:10px;">
-                <div class="col-sm-3">
-                    <!--
-                        <a href="#"> <img class="rounded-circle" src="//images.weserv.nl/?url=i.imgur.com/Md9jS0Ib.jpg"
-                            alt="Rick"></a>
-                    -->
-                    <h2><strong>Rick Sanchez</strong></h2>
-                </div>
-
-                <div class="col-sm-6">
-                    <h5>Associate Professor, <small>Dept. of Alien Agriculture, Jaarvlar-3 University</small></h5>
-                    <p>PhD on Molecular Shwanky Physics</p>
-                    <p>Address: 123 Cuba str Tampa, Fl, Earth 137</p>
-                </div>
-
-                <div class="col-sm-3 text-center social">
-                    <span class="number">Teléfono:<strong>9917153705</strong></span>
-                    <div class="button-email">
-                        <a href="#" class="btn btn-outline-unfv-color btn-sm">Editar perfil <i
-                                class="fa fa-pencil"></i></a>
-                    </div>
-                    <div class="social-icons">
-                        <a href="#">
-                            <span class="fa-stack">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-facebook-square fa-stack-1x fa-inverse"></i>
-                            </span></a>
-                        <a href="#">
-                            <span class="fa-stack">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                            </span></a>
-                        <a href="#">
-                            <span class="fa-stack">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-github-square fa-stack-1x fa-inverse"></i>
-                            </span></a>
-                    </div>
+                <div class="col-sm-12">
+                    <h2><strong>{{usuario.get_full_name}}</strong></h2>
                 </div>
             </div>
         </div>
@@ -154,24 +119,24 @@
             <div class="col-sm-12">
                 <div class="card card-block p-4">
                     <p class="h5">REGISTRO POR UNIVERSIDADES <i class="h3 fa fa-rocket fa-fw unfv-color"></i></p>
-                    <h5><i class="fa fa-user fa-fw"></i>¡Hola Rick Sanchez!</h5>
+                    <h5><i class="fa fa-user fa-fw"></i>¡Hola {{usuario.get_full_name}}!</h5>
                     <form method="POST" autocomplete="off">
                         {% csrf_token %}
                         <div class="row mt-0">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="codigoUniversitario">Código Universitario:</label>
-                                    <input type="text" class="form-control" id="codigoUniversitario"
+                                    <input type="text" class="form-control" id="codigoUniversitario" value="{{usuario.username}}"
                                         aria-describedby="emailHelp" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect2">Elegir la Unviersidad: </label>
+                                    <label for="exampleFormControlSelect2">Elegir la Universidad: </label>
                                     <select class="form-control" id="exampleFormControlSelect2" required>
                                         <option value="">------------------------------------</option>
-                                        <option value="unfv">Universidad Federico Villareal</option>
-                                        <option value="otros">Otras universidades pertenecientes a la Red Acacia</option>
+                                        <option value="unfv">Universidad Nacional Federico Villareal</option>
+                                        <option value="red_acacia">Otras universidades pertenecientes a la Red Acacia</option>
                                     </select>
                                 </div>
                             </div>
