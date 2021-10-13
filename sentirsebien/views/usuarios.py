@@ -18,17 +18,19 @@ def ingreso_sistema(request):
     if request.method == 'POST':
         email =  request.POST.get('email')
         password =  request.POST.get('password')
-
-        usuario = User.objects.filter(email = email).exists()
-        if usuario:
+    
+        if User.objects.filter(email = email).exists():
             usuario =  get_object_or_404(User, email =email)
             user = authenticate(username=usuario.username, password=password)
-            login(request, user)
-            perfil = Perfil.objects.filter(usuario = usuario).exists()
-            if perfil:
-                return redirect('home')
+            if user:
+                login(request, user)
+                perfil = Perfil.objects.filter(usuario = usuario).exists()
+                if perfil:
+                    return redirect('home')
+                else:
+                    return redirect('post_ingreso_universidades')
             else:
-                return redirect('post_ingreso_universidades')
+                return render(request, 'usuarios/login.html')
         else:
             return render(request, 'usuarios/login.html')
     else:
@@ -123,18 +125,22 @@ def salir_cuenta(request):
     logout(request)
     return redirect('ingreso_sistema')
 
+from datetime import timedelta
+from django.core.signing import TimestampSigner
 
 def cambiar_contrasenia(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         email = request.POST.get('email')
-        encoded_url = signing.dumps({"username": str(username), "email": str(email)})
 
+        signer = TimestampSigner()
+        encoded_url = signer.sign(username)
+        #encoded_url = signing.dumps({"username": str(username), "email": str(email)})
         host = request.META.get('HTTP_HOST', '')
         scheme_url = request.is_secure() and "https" or "http"
         domain = f"{scheme_url}://{host}"
 
-        subject = 'Recuperar contreseña en SENTIRSE BIEN'
+        subject = 'Recuperar contraseña en SENTIRSE BIEN'
         message = render_to_string('correos/recuperar_contrasenia.html', {
                 'username': username,
                 'email': email,
@@ -148,30 +154,22 @@ def cambiar_contrasenia(request):
 
 
 def cambiar_contrasenia_encode(request, encoded_url):
-    json = signing.loads(encoded_url)
-    username =json['username']
-    email =json['email']
-    usuario = get_object_or_404(User, username = username, email=email)
-
-    if request.user.is_authenticated:
-        return redirect('home')
-    
-    if request.method == 'POST':
-        form = SignUpForm(request.POST, instance=usuario)
-        if form.is_valid():
-            form.save()
-            return redirect('ingreso_sistema')
+    try:
+        signer = TimestampSigner()
+        username = signer.unsign(encoded_url, max_age=600) #Vence en 10 segundos
+        usuario = get_object_or_404(User, username = username)
+        if request.method == 'POST':
+            form = SignUpForm(request.POST, instance=usuario)
+            if form.is_valid():
+                form.save()
+                return redirect('ingreso_sistema')
         else:
             ctx = {
-                    'usuario': usuario
+                'usuario': usuario
                  }
             return render(request, 'usuarios/cambiar_contrasenia.html', ctx)
-    else:
-        ctx = {
-            'usuario': usuario
-        }
-        return render(request, 'usuarios/cambiar_contrasenia.html', ctx)
-
+    except:
+        return render(request, 'usuarios/expirado.html')
 
 
 
