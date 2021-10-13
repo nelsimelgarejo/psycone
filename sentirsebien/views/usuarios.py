@@ -1,25 +1,39 @@
-from django.shortcuts import redirect, render, get_object_or_404
-
-# Create your views here.
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.core import signing
-from django.core.mail import send_mail
-from psycone.settings import EMAIL_FROM_SENDGRID
-from django.utils.html import strip_tags
 from django.template.loader import render_to_string
 from django.contrib.auth import authenticate, login, logout
+from sentirsebien.forms import SignUpForm, PerfilForm
+from django.shortcuts import redirect, render, get_object_or_404
+from sentirsebien.tasks import send_email_task
+from sentirsebien.models import Perfil
 
-from sentirsebien.forms import SignUpForm
+
 # Create your views here.
-def send_email_task(subject, message, to_email):
-    plain_message = strip_tags(message)
-    send_mail(subject, plain_message, EMAIL_FROM_SENDGRID, to_email, html_message=message)
-
-
 def ingreso_sistema(request):
 
-    return render(request, 'usuarios/login.html')
+    if request.user.is_authenticated:
+        return redirect('home')
+
+    if request.method == 'POST':
+        email =  request.POST.get('email')
+        password =  request.POST.get('password')
+
+        usuario = User.objects.filter(email = email).exists()
+        if usuario:
+            usuario =  get_object_or_404(User, email =email)
+            user = authenticate(username=usuario.username, password=password)
+            login(request, user)
+            perfil = Perfil.objects.filter(usuario = usuario).exists()
+            if perfil:
+                return redirect('home')
+            else:
+                return redirect('post_ingreso_universidades')
+        else:
+            return render(request, 'usuarios/login.html')
+    else:
+        return render(request, 'usuarios/login.html')
+
 
 def activar_cuenta(request):
     if request.method == 'POST':
@@ -48,6 +62,9 @@ def aprobar_encode(request, encoded_url):
     json = signing.loads(encoded_url)
     username =json['username']
     email =json['email']
+
+    if User.objects.filter(username = username).exists():
+        return redirect('ingreso_sistema')
 
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -83,9 +100,25 @@ def previo_ingreso(request):
 
 def post_ingreso_universidades(request):
     usuario = get_object_or_404(User, username = request.user)
-    return render(request, 'usuarios/post_ingreso_universidades.html', {'usuario': usuario})
+    if Perfil.objects.filter(usuario = usuario).exists():
+        return redirect('home')
+
+    if request.method == 'POST':
+        form = PerfilForm(request.POST)
+        if form.is_valid():
+            perfil = form.save(commit=False)
+            perfil.usuario = usuario
+            perfil.save()
+            return redirect('home')
+        else:
+            return render(request, 'usuarios/post_ingreso_universidades.html', {'usuario': usuario})
+    else:
+        return render(request, 'usuarios/post_ingreso_universidades.html', {'usuario': usuario})
 
 
+def salir_cuenta(request):
+    logout(request)
+    return redirect('ingreso_sistema')
 
 
 def cambiar_contrasenia(request):
@@ -94,11 +127,7 @@ def cambiar_contrasenia(request):
 
 
 
-
 def post_ingreso_otros(request):
 
     return render(request, 'usuarios/post_ingreso_otros.html')
 
-def ingresar_dashboard(request):
-
-    return render(request, 'dashboard/home.html')

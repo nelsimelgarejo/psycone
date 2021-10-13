@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha SOCIODEMOGRÁFICA</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Page Content goes here -->
+        <div class="card z-depth-2">
+            <div class="card-content">
+                <h5>FICHA SOCIODEMOGRÁFICA</h5>
+                <form method="POST" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="input-field  col s3">
+                            <input id="anio_ingreso" name="anio_ingreso" type="number" class="validate">
+                            <label for="anio_ingreso">Año de ingreso:</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <select name="anio_estudio_actual" id="anio_estudio_actual">
+                                <option value="">--------------</option>
+                                <option value="anio1">1 año</option>
+                                <option value="anio2">2 año</option>
+                                <option value="anio3">3 año</option>
+                                <option value="anio4">4 año</option>
+                                <option value="anio5">5 año</option>
+                                <option value="anio6">6 año</option>
+                            </select>
+                            <label for="anio_estudio_actual">Año de estudio actual:</label>
+                        </div>
+                        <div class="col s3">3</div>
+                        <div class="col s3">4</div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{% static 'dataforms.js' %}"></script>
+    <script src="{% static 'fac_escuelas.js' %}"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, options);
+        });
+    </script>
+</body>
+
+</html>

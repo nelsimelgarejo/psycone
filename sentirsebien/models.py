@@ -25,7 +25,7 @@ class Perfil(models.Model):
     telefono = models.CharField(max_length=20, blank=True, null=True)
     facebook = models.URLField( blank=True, null=True)
     instagram = models.URLField(blank=True, null=True)
-    linkeding = models.URLField(blank=True, null=True)
+    linkedin = models.URLField(blank=True, null=True)
 
     estado = models.BooleanField(default=True)
     creado = models.DateTimeField(auto_now_add=True)
@@ -87,6 +87,7 @@ class FichaSociodemografica(models.Model):
         return f"{self.perfil.codigo_universitario}"
 
     def save(self, *args, **kwargs):
+        self.estado = True
         if not self.id:
             self.id = uuid.uuid4()
 

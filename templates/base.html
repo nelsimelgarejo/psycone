@@ -1,0 +1,200 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
+    {% block title %}
+  
+    {% endblock title %}
+
+    <link rel="shortcut icon" href="https://static-media-files-ianalytycs.sfo3.digitaloceanspaces.com/img/favicon.ico"
+        type="image/x-icon">
+    <link rel="icon" href="https://static-media-files-ianalytycs.sfo3.digitaloceanspaces.com/img/favicon.ico"
+        type="image/x-icon">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'sidebar.css' %}">
+    
+    <style>
+        body {
+            background-color: #ffe3f5;
+        }
+
+        .unfv-color, input, select {
+            color: #97449e !important;
+        }
+
+        .btn-unfv-color {
+            background-color: #97449e;
+            color: #ffffff;
+        }
+
+        .btn-outline-unfv-color {
+            color: #97449e;
+            background-color: #ffffff;
+            border: 2px solid #97449e;
+        }
+
+        .btn-outline-unfv-color:hover {
+            background-color: #97449e;
+            color: #ffffff;
+        }
+
+        .card {
+            margin-bottom: 2rem;
+            border-color: #ffffff;
+        }
+
+        .btn-unfv-color-success {
+            background-color: rgb(231, 133, 255);
+            color: #0d0d38;
+        }
+
+        .btn-unfv-color-completed {
+            background-color: rgb(80, 238, 164);
+            color: #0d0d38;
+        }
+
+        .modal {
+            background-color: #97449e;
+        }
+
+        .color-dark{
+            color: black;
+        }
+    </style>
+    {% block style %}
+    {% endblock style %}
+</head>
+
+<body>
+
+    <div class="page-wrapper chiller-theme toggled">
+        
+
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <i class="fas fa-bars"></i>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a href="#">Sentirse Bien</a>
+                    <div id="close-sidebar">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="sidebar-header">
+                    <div class="user-info">
+                        <span class="user-name">
+                            <a class="color-dark" href="{% url 'ver_perfil' %}"><strong>{{perfil.usuario.get_full_name}}</strong></a>
+                        </span>
+                        <span class="user-role">USUARIO: {{perfil.tipo_usuario|upper}}</span>
+                        <span class="user-status">
+                            <i class="fa fa-circle"></i>
+                            <span>Online</span>
+                        </span>
+                    </div>
+                </div>
+                <!-- sidebar-header  -->
+
+                <div class="sidebar-menu">
+                    <ul>
+                        <li class="header-menu">
+                            <span>General</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="{% url 'home' %}">
+                                <i class="fa fa-tachometer-alt"></i>
+                                <span>Formularios</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-chart-line"></i>
+                                <span>Resultados</span>
+                            </a>
+                        </li>
+
+                        <li class="header-menu">
+                            <span>Extra</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-book"></i>
+                                <span>Documentation</span>
+                                <span class="badge badge-pill badge-primary">Beta</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+
+
+
+                <!-- sidebar-menu  -->
+            </div>
+            <!-- sidebar-content  -->
+            <div class="sidebar-footer">
+                <a href="#">
+                    <i class="fa fa-bell"></i>
+                    <span class="badge badge-pill badge-warning notification">3</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-envelope"></i>
+                    <span class="badge badge-pill badge-success notification">7</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-cog"></i>
+                    <span class="badge-sonar"></span>
+                </a>
+                <a href="{% url 'salir_cuenta' %}" data-toggle="tooltip" data-placement="top" title="Cerrar sesión">
+                    <i class="fa fa-power-off"></i>
+                </a>
+            </div>
+        </nav>
+        <!-- sidebar-wrapper  -->
+
+        
+
+        <main class="page-content">
+            <div class="container-fluid">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </main>
+        <!-- page-content" -->
+    </div>
+    <!-- page-wrapper -->
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="{% static 'sidebar.js' %}"></script>
+    
+
+    {% block script %}
+    {% endblock script %}
+</body>
+
+</html>

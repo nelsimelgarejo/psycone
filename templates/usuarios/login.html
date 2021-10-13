@@ -37,7 +37,7 @@
         }
 
         .login-container {
-            background-color: hsla(201, 100%, 6%, 0.6);
+            background-color: #eaf4f7b6;
             padding: 50px 30px;
             min-width: 400px;
             width: 50%;
@@ -46,7 +46,7 @@
         }
 
         .login-title {
-            color: #f07613;
+            color: #97449e;
             text-align: center;
             margin: 0;
             margin-bottom: 40px;
@@ -86,40 +86,46 @@
             padding: 10px 30px;
             width: 100%;
             border-radius: 5px;
-            background: hsla(201, 100%, 50%, 0.1);
-            border: 1px solid hsl(201, 100%, 50%);
+            background: #97449e77;
+            border: 1px solid #97449e;
             outline: none;
             font-size: 1.5em;
-            color: #fff;
+            color: rgb(27, 7, 36);
             font-weight: lighter;
             margin-top: 20px;
             cursor: pointer;
         }
 
         .login-button:hover {
-            background-color: hsla(201, 100%, 50%, 0.3);
+            background-color: #97449e;
+            color: #fff;
         }
 
         .login-button:focus {
-            background-color: hsla(201, 100%, 50%, 0.5);
+            background-color: #97449eb9;
         }
 
         .unfv-color {
-            color: #f07613;
+            color: #97449e;
+            font-weight: bold;
+        }
+
+        .label-input{
+            color: #97449e !important;
         }
 
         .btn-unfv-color {
-            background-color: #f07613;
+            background-color: #97449e;
             color: #ffffff;
         }
 
         .btn-outline-unfv-color {
-            color: #f07613;
-            border: 2px solid #f07613;
+            color: #97449e;
+            border: 2px solid #97449e;
         }
 
         .btn-outline-unfv-color:hover {
-            background-color: #f07613;
+            background-color: #97449e;
             color: #ffffff;
         }
 
@@ -127,26 +133,27 @@
             color: #ffffff !important;
         }
     </style>
+    
 </head>
 
 <body>
     <div class="full-screen-container">
         <div class="login-container">
-            <h3 class="login-title">Sentirse bien</h3>
-            <form method="POST">
+            <h3 class="login-title">Sentirse bien <i class="fas fa-shoe-prints"></i></h3>
+            <form method="POST" autocomplete="off">
                 {% csrf_token %}
                 <div class="input-group">
-                    <label>Correo electrónico:</label>
-                    <input type="email" name="username" required autocomplete="off">
+                    <label class="label-input" ><b>Correo electrónico:</b></label>
+                    <input type="email" name="email" required>
                 </div>
                 <div class="input-group">
-                    <label>Contraseña:</label>
-                    <input type="password" required>
+                    <label class="label-input"><b>Contraseña:</b></label>
+                    <input type="password" name="password" required>
                 </div>
                 <button type="submit" class="login-button">Iniciar sesión <i class="fas fa-sign-in-alt"></i></button>
             </form>
             <div class="text-right mt-4">
-                <a data-toggle="modal" data-target="#staticBackdrop" class="unfv-color">Activar cuenta</a>
+                <a data-toggle="modal" data-target="#staticBackdrop" class="unfv-color">Activar cuenta <i class="fas fa-lock-open"></i></a>
             </div>
         </div>
     </div>
@@ -157,7 +164,7 @@
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header" style="background-color: #f07613; color: #fff;">
+                <div class="modal-header" style="background-color: #97449e; color: #fff;">
                     <h5 class="modal-title" id="staticBackdropLabel">Activar cuenta de usuario</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
