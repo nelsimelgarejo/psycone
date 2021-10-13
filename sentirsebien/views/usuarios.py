@@ -80,19 +80,19 @@ def aprobar_encode(request, encoded_url):
                     'username': username,
                     'email':email
                  }
-                return render(request, 'usuarios/contrasenia.html', ctx)
+                return render(request, 'usuarios/activar_cuenta.html', ctx)
         else:
             ctx = {
                     'username': username,
                     'email':email
                  }
-            return render(request, 'usuarios/contrasenia.html', ctx)
+            return render(request, 'usuarios/activar_cuenta.html', ctx)
     else:
         ctx = {
             'username': username,
             'email':email
         }
-        return render(request, 'usuarios/contrasenia.html', ctx)
+        return render(request, 'usuarios/activar_cuenta.html', ctx)
 
 def previo_ingreso(request):
     usuario = get_object_or_404(User, username = request.user)
@@ -115,6 +115,9 @@ def post_ingreso_universidades(request):
     else:
         return render(request, 'usuarios/post_ingreso_universidades.html', {'usuario': usuario})
 
+def post_ingreso_otros(request):
+
+    return render(request, 'usuarios/post_ingreso_otros.html')
 
 def salir_cuenta(request):
     logout(request)
@@ -122,12 +125,53 @@ def salir_cuenta(request):
 
 
 def cambiar_contrasenia(request):
-    usuario = get_object_or_404(User, username = request.user)
-    return render(request, 'usuarios/contrasenia.html', {'usuario': usuario})
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        encoded_url = signing.dumps({"username": str(username), "email": str(email)})
+
+        host = request.META.get('HTTP_HOST', '')
+        scheme_url = request.is_secure() and "https" or "http"
+        domain = f"{scheme_url}://{host}"
+
+        subject = 'Recuperar contreseña en SENTIRSE BIEN'
+        message = render_to_string('correos/recuperar_contrasenia.html', {
+                'username': username,
+                'email': email,
+                'ver_url': f"{domain}",
+                'encoded_url': f"{encoded_url}"
+            })
+        send_email_task(subject, message, [email])
+        return JsonResponse({'error': False, 'mensaje':'Se ha enviado un correo de activación a su correo'})
+    else:
+        return JsonResponse({'error': True, 'mensaje':'Existe un error en la petición'})
+
+
+def cambiar_contrasenia_encode(request, encoded_url):
+    json = signing.loads(encoded_url)
+    username =json['username']
+    email =json['email']
+    usuario = get_object_or_404(User, username = username, email=email)
+
+    if request.user.is_authenticated:
+        return redirect('home')
+    
+    if request.method == 'POST':
+        form = SignUpForm(request.POST, instance=usuario)
+        if form.is_valid():
+            form.save()
+            return redirect('ingreso_sistema')
+        else:
+            ctx = {
+                    'usuario': usuario
+                 }
+            return render(request, 'usuarios/cambiar_contrasenia.html', ctx)
+    else:
+        ctx = {
+            'usuario': usuario
+        }
+        return render(request, 'usuarios/cambiar_contrasenia.html', ctx)
 
 
 
-def post_ingreso_otros(request):
-
-    return render(request, 'usuarios/post_ingreso_otros.html')
 

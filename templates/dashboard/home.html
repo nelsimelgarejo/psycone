@@ -840,9 +840,12 @@
         </div>
     </div>
 </div>
+
 {% endblock content %}
 
 {% block script %}
+{% if not is_ficha  %}
 <script src="{% static 'dataforms.js' %}"></script>
 <script src="{% static 'fac_escuelas.js' %}"></script>
+{% endif %}
 {% endblock script %}
