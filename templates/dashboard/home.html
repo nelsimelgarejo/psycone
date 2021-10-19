@@ -85,7 +85,7 @@
     </div>
 </div>
 <div class="text-center">
-    <audio controls autoplay>
+    <audio controls>
         <!--autoplay-->
         <source src="https://static-media-files-ianalytycs.sfo3.digitaloceanspaces.com/audio_videos/musicaRelajante.ogg"
             type="audio/ogg">
@@ -588,30 +588,38 @@
                             mucho
                             más que las tradicionales?</span>
                         <hr>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInlineTest2" name="test2" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInlineTest2">Muy poco</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInlineTest2" value="1" name="test2"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInlineTest2">Nunca</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline2Test2" name="test2" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline2Test2">Poco</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline2Test2" value="2" name="test2"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline2Test2">1 o 2 veces a la
+                                semana</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline3Test2" name="test2" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline3Test2">Medio</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline3Test2" value="3" name="test2"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline3Test2">1 vez a la semana</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline4Test2" name="test2" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline4Test2">Alto</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline4Test2" value="4" name="test2"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline4Test2">2 o 3 veces a la
+                                semana</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline5Test2" name="test2" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline5Test2">Muy Alto</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline5Test2" value="5" name="test2"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline5Test2">Casi todos los
+                                días</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline6Test2" value="6" name="test2"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline6Test2">Todos los días</label>
                         </div>
                     </div>
                     <div class="text-center mt-4">
@@ -639,34 +647,28 @@
                 <form method="POST">
                     {% csrf_token %}
                     <div class="text-center">
-                        <span style="font-size: 1.3rem;">¿Es correcto afirmar que las nuevas tecnologías estresan
-                            mucho
-                            más que las tradicionales?</span>
+                        <span style="font-size: 1.3rem;">No podía sentir ningún sentimiento positivo
+                        </span>
                         <hr>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline1Test3" name="test3" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline1Test3">Muy poco</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline1Test3" value="0" name="test3"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline1Test3">No</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline2Test3" name="test3" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline2Test3">Poco</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline2Test3" value="1" name="test3"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline2Test3">Un poco</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline3Test3" name="test3" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline3Test3">Medio</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline3Test3" value="2" name="test3"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline3Test3">Con regularidad</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline4Test3" name="test3" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline4Test3">Alto</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline5Test3" name="test3" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline5Test3">Muy Alto</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline4Test3" value="3" name="test3"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline4Test3">Mucho</label>
                         </div>
                     </div>
                     <div class="text-center mt-4">
@@ -697,30 +699,25 @@
                             mucho
                             más que las tradicionales?</span>
                         <hr>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline1Test6" name="test4" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline1Test6">Muy poco</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline1Test6" value="4" name="test4"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline1Test6">Muy de acuerdo</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline2Test6" name="test4" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline2Test6">Poco</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline2Test6" value="3" name="test4"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline2Test6">De acuerdo</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline3Test6" name="test4" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline3Test6">Medio</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline3Test6" value="2" name="test4"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline3Test6">En desacuerdo</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline4Test6" name="test4" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline4Test6">Alto</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline5Test6" name="test4" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline5Test6">Muy Alto</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline4Test6" value="1" name="test4"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline4Test6">Muy en desacuerdo</label>
                         </div>
                     </div>
                     <div class="text-center mt-4">
@@ -751,30 +748,39 @@
                             mucho
                             más que las tradicionales?</span>
                         <hr>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline1Test7" name="test5" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline1Test7">Muy poco</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline1Test7" value="3" name="test5"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline1Test7">Muy descriptivo a
+                                mí</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline2Test7" name="test5" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline2Test7">Poco</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline2Test7" value="2" name="test5"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline2Test7">Bastante descriptivo a
+                                mí</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline3Test7" name="test5" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline3Test7">Medio</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline3Test7" value="1" name="test5"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline3Test7">Algo descriptivo a
+                                mí</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline4Test7" name="test5" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline4Test7">Alto</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline4Test7" value="-1" name="test5"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline4Test7">Algo raro en mí</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline5Test7" name="test5" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline5Test7">Muy Alto</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline5Test7" value="-2" name="test5"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline5Test7">Bastante extraño en
+                                mí</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline6Test7" value="-3" name="test5"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline6Test7">Muy extraño en mí</label>
                         </div>
                     </div>
                     <div class="text-center mt-4">
@@ -805,30 +811,35 @@
                             mucho
                             más que las tradicionales?</span>
                         <hr>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline1Test8" name="test6" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline1Test8">Muy poco</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline1Test8" value="1" name="test6"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline1Test8">Nunca</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline2Test8" name="test6" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline2Test8">Poco</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline2Test8" value="2" name="test6"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline2Test8">Pocas veces</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline3Test8" name="test6" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline3Test8">Medio</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline3Test8" value="3" name="test6"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline3Test8">A veces</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline4Test8" name="test6" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline4Test8">Alto</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline4Test8" value="4" name="test6"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline4Test8">Muchas veces</label>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline ml-4">
-                            <input type="radio" id="customRadioInline5Test8" name="test6" class="custom-control-input"
-                                required>
-                            <label class="custom-control-label" for="customRadioInline5Test8">Muy Alto</label>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline5Test8" value="5" name="test6"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline5Test8">Siempre</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline ml-4 my-2">
+                            <input type="radio" id="customRadioInline6Test8" value="0" name="test6"
+                                class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline6Test8">Nunca tuve pareja</label>
                         </div>
                     </div>
                     <div class="text-center mt-4">
@@ -844,7 +855,7 @@
 {% endblock content %}
 
 {% block script %}
-{% if not is_ficha  %}
+{% if not is_ficha %}
 <script src="{% static 'dataforms.js' %}"></script>
 <script src="{% static 'fac_escuelas.js' %}"></script>
 {% endif %}

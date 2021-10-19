@@ -92,3 +92,106 @@ class FichaSociodemografica(models.Model):
             self.id = uuid.uuid4()
 
         return super(FichaSociodemografica, self).save(*args, **kwargs)
+
+
+topicos =(
+    ('sa_mental','SALUD MENTAL POSITIVA'),
+    ('asertividad','ASERTIVIDAD'),
+    ('ae_depresion','ANSIEDAD, ESTRÉS Y DEPRESIÓN'),
+    ('ap_social','APOYO SOCIAL'),
+    ('vi_pareja','VIOLENCIA DE PAREJA')
+)
+
+class ComponenteBienestar(models.Model):
+    id = models.UUIDField(primary_key=True, editable=False)
+    perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE, blank=True, null=True)
+    topico = models.CharField(choices=topicos, max_length=20)
+    completado = models.BooleanField(default=False)
+
+    estado = models.BooleanField(default=True)
+    creado = models.DateTimeField(auto_now_add=True)
+    actualizado = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-creado']
+
+    def __str__(self):
+        return f"{self.topico}"
+
+    def save(self, *args, **kwargs):
+        self.estado = True
+        if not self.id:
+            self.id = uuid.uuid4()
+        return super(ComponenteBienestar, self).save(*args, **kwargs)
+        
+
+class ItemsTopicos(models.Model):
+    id = models.UUIDField(primary_key=True, editable=False)
+    item = models.TextField(max_length=2000)
+    topico = models.CharField(choices=topicos, max_length=20)
+
+    estado = models.BooleanField(default=True)
+    creado = models.DateTimeField(auto_now_add=True)
+    actualizado = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-creado']
+
+    def __str__(self):
+        return f"{self.topico, self.item}"
+
+    def save(self, *args, **kwargs):
+        self.estado = True
+        if not self.id:
+            self.id = uuid.uuid4()
+        return super(ItemsTopicos, self).save(*args, **kwargs)
+
+
+
+class RespuestasPuente(models.Model):
+    id = models.UUIDField(primary_key=True, editable=False)
+    perfil = models.ForeignKey(Perfil, on_delete = models.CASCADE) 
+    item = models.ForeignKey(ItemsTopicos, on_delete=models.CASCADE)
+    respuesta = models.SmallIntegerField()
+
+    completado = models.BooleanField(default=False)
+    estado = models.BooleanField(default=True)
+    creado = models.DateTimeField(auto_now_add=True)
+    actualizado = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-creado']
+
+    def __str__(self):
+        return f"{self.topico}"
+
+    def save(self, *args, **kwargs):
+        self.estado = True
+        if not self.id:
+            self.id = uuid.uuid4()
+        return super(RespuestasPuente, self).save(*args, **kwargs)
+
+
+class ResultadoPerfil(models.Model):
+    id = models.UUIDField(primary_key=True, editable=False)
+    perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE)
+    topico = models.CharField(choices=topicos, max_length=100)
+    puntaje = models.FloatField(default=0.0)
+    resultado = models.CharField(max_length=255, blank=True)
+ 
+    estado = models.BooleanField(default=True)
+    creado = models.DateTimeField(auto_now_add=True)
+    actualizado = models.DateTimeField(auto_now_add=True)
+
+
+    class Meta:
+        ordering = ['-creado']
+
+    def __str__(self):
+        return f"{self.topico}"
+
+    def save(self, *args, **kwargs):
+        self.estado = True
+        if not self.id:
+            self.id = uuid.uuid4()
+        return super(ResultadoPerfil, self).save(*args, **kwargs)

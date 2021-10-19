@@ -1,18 +1,21 @@
-from django.contrib.auth import forms
 from django.shortcuts import redirect, render, get_object_or_404
-from django.http import HttpResponse
-from sentirsebien.models import Perfil, FichaSociodemografica
+from sentirsebien.models import Perfil, FichaSociodemografica, ComponenteBienestar
 from sentirsebien.forms import FichaSociodemograficaForm
 
 # Create your views here.
 def home(request):
     perfil = get_object_or_404(Perfil, usuario__username = request.user)
     is_ficha = False
-    is_lluch = False
-    is_dass21 = False
-    is_mspss = False
-    is_rathus = False
-    is_pareja = False
+
+    if not ComponenteBienestar.objects.filter(perfil=perfil).exists():
+        """Permite crear los componentes para el nuevo usuario"""
+        componentes = ComponenteBienestar.objects.filter(perfil=None)
+        for componente in componentes:
+            ComponenteBienestar.objects.create(
+                perfil = perfil,
+                topico = componente.topico,
+                completado = componente.completado
+            )
 
     if FichaSociodemografica.objects.filter(perfil = perfil).exists():
         is_ficha = True
