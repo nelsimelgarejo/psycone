@@ -19,7 +19,9 @@ urlpatterns = [
     path('home', dashboard.home, name='home'),
     path('ficha/sociodemografica', dashboard.ficha_sociodemografica, name='ficha_sociodemografica'),
     path('ficha/form', dashboard.ficha_form, name='ficha_form'),
-    path('ver/perfil', dashboard.ver_perfil, name='ver_perfil'),
+    path('perfil', dashboard.ver_perfil, name='ver_perfil'),
+    path('resultados', dashboard.ver_resultados, name='ver_resultados'),
+    path('send/resultados/json', dashboard.get_resultados_json, name='get_resultados_json'),
 
     #Processing
     path('primer/item', processing.primer_item, name='primer_item'),

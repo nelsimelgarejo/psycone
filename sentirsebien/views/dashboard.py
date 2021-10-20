@@ -1,3 +1,4 @@
+from django.http.response import JsonResponse
 from django.shortcuts import redirect, render, get_object_or_404
 from sentirsebien.models import Perfil, FichaSociodemografica, ComponenteBienestar, ResultadoPerfil
 from sentirsebien.forms import FichaSociodemograficaForm
@@ -45,7 +46,6 @@ def home(request):
         'is_mspss' : is_mspss,
         'is_pareja' : is_pareja
     }
-
     return render(request, 'dashboard/home.html', ctx)
 
 
@@ -61,10 +61,121 @@ def ficha_sociodemografica(request):
     return redirect('home')
 
 def ficha_form(request):
-
     return render(request, 'dashboard/ficha_form.html')
 
 def ver_perfil(request):
     perfil = get_object_or_404(Perfil, usuario__username = request.user)
-
     return render(request, 'dashboard/perfil.html', {'perfil':perfil})
+
+def ver_resultados(request):
+    perfil = get_object_or_404(Perfil, usuario__username = request.user)
+    return render(request, 'dashboard/resultados.html', {'perfil':perfil})
+
+
+def get_resultados_json(request):
+    perfil = get_object_or_404(Perfil, usuario__username = request.user)
+
+    resultados = ResultadoPerfil.objects.filter(perfil=perfil)
+    data = []
+
+    for resultado_item in resultados:
+        valor = ''
+        if resultado_item.topico == 'sa_mental':
+            if resultado_item.resultado == 'low':
+                valor = 'Deficiente'
+            elif resultado_item.resultado == 'medium':
+                valor = 'Promedio'
+            else:
+                valor = 'Saludable'
+            data.append({
+                'id': resultado_item.topico,
+                'topico': 'Salud Mental Positiva',
+                'resultado': valor,
+                'puntaje': resultado_item.puntaje
+            })
+        
+        elif resultado_item.topico == 'asertividad':
+            if resultado_item.resultado == 'low':
+                valor = 'Baja'
+            elif resultado_item.resultado == 'medium':
+                valor = 'Media'
+            else:
+                valor = 'Alta'
+            data.append({
+                'id': resultado_item.topico,
+                'topico': 'Escala de Asertividad',
+                'resultado': valor,
+                'puntaje': resultado_item.puntaje
+            })
+
+        elif resultado_item.topico == 'ap_social':
+            if resultado_item.resultado == 'low':
+                valor = 'Bajo'
+            elif resultado_item.resultado == 'medium':
+                valor = 'Promedio'
+            else:
+                valor = 'Alto'
+            data.append({
+                'id': resultado_item.topico,
+                'topico': 'Apoyo Social Percibido',
+                'resultado': valor,
+                'puntaje': resultado_item.puntaje
+            })
+        
+        elif resultado_item.topico == 'vi_pareja':
+            if resultado_item.resultado == 'low':
+                valor = 'Bajo'
+            elif resultado_item.resultado == 'medium':
+                valor = 'Moderado'
+            else:
+                valor = 'Alto'
+            data.append({
+                'id': resultado_item.topico,
+                'topico': 'Violencia de pareja',
+                'resultado': valor,
+                'puntaje': resultado_item.puntaje
+            })
+        
+        elif resultado_item.topico == 'das_ansiedad':
+            if resultado_item.resultado == 'low':
+                valor = 'Bajo'
+            elif resultado_item.resultado == 'medium':
+                valor = 'Promedio'
+            else:
+                valor = 'Alto'
+            data.append({
+                'id': resultado_item.topico,
+                'topico': 'Ansiedad',
+                'resultado': valor,
+                'puntaje': resultado_item.puntaje
+            })
+        
+        elif resultado_item.topico == 'das_estres':
+            if resultado_item.resultado == 'low':
+                valor = 'Bajo'
+            elif resultado_item.resultado == 'medium':
+                valor = 'Promedio'
+            else:
+                valor = 'Alto'
+            data.append({
+                'id': resultado_item.topico,
+                'topico': 'Estrés',
+                'resultado': valor,
+                'puntaje': resultado_item.puntaje
+            })
+        
+        elif resultado_item.topico == 'das_depresion':
+            if resultado_item.resultado == 'low':
+                valor = 'Bajo'
+            elif resultado_item.resultado == 'medium':
+                valor = 'Promedio'
+            else:
+                valor = 'Alto'
+            data.append({
+                'id': resultado_item.topico,
+                'topico': 'Depresión',
+                'resultado': valor,
+                'puntaje': resultado_item.puntaje
+            })
+        
+    return JsonResponse(data, safe=False)

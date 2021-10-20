@@ -7,6 +7,7 @@ from sentirsebien.forms import SignUpForm, PerfilForm
 from django.shortcuts import redirect, render, get_object_or_404
 from sentirsebien.tasks import send_email_task
 from sentirsebien.models import Perfil
+from django.core.signing import TimestampSigner
 
 
 # Create your views here.
@@ -125,8 +126,6 @@ def salir_cuenta(request):
     logout(request)
     return redirect('ingreso_sistema')
 
-from datetime import timedelta
-from django.core.signing import TimestampSigner
 
 def cambiar_contrasenia(request):
     if request.method == 'POST':

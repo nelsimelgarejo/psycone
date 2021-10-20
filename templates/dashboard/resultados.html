@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Resultados - {{perfil.usuario.get_full_name}}</title>
+{% endblock title %}
+
+{% block style %}
+<style>
+    .dasElement{
+        box-shadow: 2px 2px 2px 1px rgb(241, 83, 83);
+    }
+</style>
+{% endblock style %}
+
+
+{% block content %}
+<div class="row text-center">
+    <div class="col-md-2"></div>
+    <div class="form-group col-md-8">
+        <h4 class="h4"><b>Resultados <i class="far fa-chart-bar"></i></b></h4>
+        <p>A continuación te mostramos tus resultados.</span></p>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<div class="row text-center" id="resultados">
+
+</div>
+{% endblock content %}
+
+{% block script %}
+<script>
+    $(function () {
+        $.ajax({
+            url: "{% url 'get_resultados_json' %}",
+            type: 'GET',
+            dataType: 'json', // added data type
+            success: function (res) {
+                let das = ['das_ansiedad', 'das_estres', 'das_depresion']
+                $('#resultados').empty();
+                res.map(element => {
+                    if (das.includes(element.id)) {
+                        $('#resultados').append(`
+                        <div class="col-md-4">
+                            <div class="card dasElement" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title"><b>DAS | ${element.topico}</b></h5>
+                                    <p class="card-text">${element.resultado} | ${element.puntaje}</p>
+                                </div>
+                                <div class="text-center">
+                                    <a href="#" class="card-link">Información</a>
+                                    <a href="#" class="card-link">Vídeo <i class="fas fa-video"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        `);
+                    } else {
+                        $('#resultados').append(`
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title"><b>${element.topico}</b></h5>
+                                    <p class="card-text">${element.resultado} | ${element.puntaje}</p>
+                                </div>
+                                <div class="text-center">
+                                    <a href="#" class="card-link">Información</a>
+                                    <a href="#" class="card-link">Vídeo <i class="fas fa-video"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        `);
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+{% endblock script %}

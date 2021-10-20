@@ -56,7 +56,7 @@
 
 
 {% block content %}
-<div class="row">
+<div class="row text-center">
     <div class="col-md-2"></div>
     <div class="form-group col-md-8">
         <h4 class="h4"><b>Formularios <i class="far fa-file-alt"></i></b></h4>
@@ -195,7 +195,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body text-center">
 
                 <form method="POST" autocomplete="off" action="{% url 'ficha_sociodemografica' %}"
                     id="ficha_sociodemografica">
@@ -224,7 +224,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-4 text-center">
+                        <div class="col-md-4">
                             <label for="inlineRadio1">¿Es becario?</label> <br>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="is_becario" id="inlineRadio1"
@@ -330,7 +330,7 @@
                         </div>
                     </div>
 
-                    <h5>Lugar de Nacimiento:</h5>
+                    <h5><b>Lugar de Nacimiento:</b></h5>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -361,7 +361,7 @@
                         </div>
                     </div>
 
-                    <h5>Lugar de Residencia:</h5>
+                    <h5><b>Lugar de Residencia:</b></h5>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -495,7 +495,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="religion">Tu situación ocupacional:</label>
+                                <label for="religion">Situación ocupacional:</label>
                                 <select class="form-control" id="religion" name="situacion_ocupacional" required>
                                     <option value="">--------------</option>
                                     <option value="contrato_fijo">Trabajo con contrato fijo</option>
@@ -522,7 +522,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="voluntariado">Horas de apoyo en voluntariado:</label>
+                                <label for="voluntariado">Horas en voluntariados:</label>
                                 <input type="number" class="form-control" id="voluntariado"
                                     name="horas_apoyo_voluntariado" required>
                                 <small>Cero si no hace voluntariado</small>
@@ -530,8 +530,10 @@
                         </div>
                     </div>
 
-
-                    <span>Durante los 2 últimos meses ha tenido un problema:</span>
+                   
+                        <span>Durante los 2 últimos meses ha tenido un problema:</span>
+                   
+                    
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -620,8 +622,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fallecimiento_tiempo">El fallecimiento, hace cuánto tiempo fue
-                                    (años):</label>
+                                <label for="fallecimiento_tiempo">Si falleció, hace cuánto tiempo fue
+                                    (meses):</label>
                                 <input type="number" class="form-control" name="tiempo_de_fallecimiento"
                                     id="fallecimiento_tiempo">
                                 <small>Si no es el caso, dejarlo en blanco.</small>
