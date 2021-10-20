@@ -97,7 +97,9 @@ class FichaSociodemografica(models.Model):
 topicos =(
     ('sa_mental','SALUD MENTAL POSITIVA'),
     ('asertividad','ASERTIVIDAD'),
-    ('ae_depresion','ANSIEDAD, ESTRÉS Y DEPRESIÓN'),
+    ('das_ansiedad','ANSIEDAD'),
+    ('das_estres','ESTRÉS'),
+    ('das_depresion','DEPRESIÓN'),
     ('ap_social','APOYO SOCIAL'),
     ('vi_pareja','VIOLENCIA DE PAREJA')
 )

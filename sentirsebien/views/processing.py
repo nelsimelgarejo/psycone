@@ -6,7 +6,15 @@ import random
 
 def primer_item(request):
     topico = request.GET.get('topico', None)
-    item = ItemsTopicos.objects.filter(topico = topico).order_by('?').first()
+   
+    if topico == 'ae_depresion':
+        ae_depresion = ['das_ansiedad', 'das_estres', 'das_depresion']
+        item_lista = random.sample(ae_depresion,1)
+        sub_topico = item_lista[0]
+        item = ItemsTopicos.objects.filter(topico = sub_topico).order_by('?').first()
+    else:
+        item = ItemsTopicos.objects.filter(topico = topico).order_by('?').first()
+   
     data = {
         'id': item.id,
         'item': item.item,
@@ -37,10 +45,18 @@ def respuesta_sa_mental(request):
         respuesta = respuesta
     )
     items_respondidos = []
-    for respuesta in RespuestasPuente.objects.filter(perfil=perfil, item__topico = topico):
-        items_respondidos.append(respuesta.item) 
-    items_total = get_list_or_404(ItemsTopicos, topico = topico)
-    items_disponibles = list(set(items_total) - set(items_respondidos))
+    
+    if topico == 'ae_depresion':
+        ae_depresion = ['das_ansiedad', 'das_estres', 'das_depresion']
+        for respuesta in RespuestasPuente.objects.filter(perfil=perfil, item__topico__in = ae_depresion):
+            items_respondidos.append(respuesta.item) 
+        items_total = get_list_or_404(ItemsTopicos, topico__in = ae_depresion)
+        items_disponibles = list(set(items_total) - set(items_respondidos))
+    else:
+        for respuesta in RespuestasPuente.objects.filter(perfil=perfil, item__topico = topico):
+            items_respondidos.append(respuesta.item) 
+        items_total = get_list_or_404(ItemsTopicos, topico = topico)
+        items_disponibles = list(set(items_total) - set(items_respondidos))
 
     if len(items_disponibles) <=0:
         data = {
@@ -52,7 +68,7 @@ def respuesta_sa_mental(request):
         return JsonResponse(data)
 
     item_lista = random.sample(items_disponibles,1)
-    item_new = item = item_lista[0]
+    item_new = item_lista[0]
 
     data = {
         'estado': True,
