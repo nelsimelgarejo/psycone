@@ -16,7 +16,7 @@ class ItemsTopicosResource(resources.ModelResource):
 
 class ItemsTopicosAdmin(ImportExportModelAdmin,admin.ModelAdmin): # new
     search_fields = ['item']
-    list_display = ('topico','item','estado','creado','actualizado',)
+    list_display = ('topico','item','inverso','creado','actualizado','estado',)
     resources_class = ItemsTopicosResource
 
 admin.site.register(ItemsTopicos, ItemsTopicosAdmin)

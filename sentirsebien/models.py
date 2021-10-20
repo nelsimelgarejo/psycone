@@ -108,8 +108,8 @@ class ComponenteBienestar(models.Model):
     id = models.UUIDField(primary_key=True, editable=False)
     perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE, blank=True, null=True)
     topico = models.CharField(choices=topicos, max_length=20)
+    
     completado = models.BooleanField(default=False)
-
     estado = models.BooleanField(default=True)
     creado = models.DateTimeField(auto_now_add=True)
     actualizado = models.DateTimeField(auto_now=True)
@@ -131,6 +131,7 @@ class ItemsTopicos(models.Model):
     id = models.UUIDField(primary_key=True, editable=False)
     item = models.TextField(max_length=2000)
     topico = models.CharField(choices=topicos, max_length=20)
+    inverso = models.BooleanField(default=False)
 
     estado = models.BooleanField(default=True)
     creado = models.DateTimeField(auto_now_add=True)
@@ -147,8 +148,6 @@ class ItemsTopicos(models.Model):
         if not self.id:
             self.id = uuid.uuid4()
         return super(ItemsTopicos, self).save(*args, **kwargs)
-
-
 
 class RespuestasPuente(models.Model):
     id = models.UUIDField(primary_key=True, editable=False)

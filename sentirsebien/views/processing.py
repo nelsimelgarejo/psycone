@@ -59,6 +59,8 @@ def respuesta_sa_mental(request):
         items_disponibles = list(set(items_total) - set(items_respondidos))
 
     if len(items_disponibles) <=0:
+        resultado_process(perfil, topico)
+        RespuestasPuente.objects.filter(perfil=perfil).delete()
         data = {
             'estado': False,
             'id': 12,
@@ -77,3 +79,80 @@ def respuesta_sa_mental(request):
         'topico': topico
     }
     return JsonResponse(data)
+
+
+def resultado_process(perfil, topico):
+    if topico == 'ae_depresion':
+        ae_depresion = ['das_ansiedad', 'das_estres', 'das_depresion']
+        resultado = ''
+        for das_component in ae_depresion:
+            contador = 0
+            for respuesta_item in RespuestasPuente.objects.filter(perfil=perfil, item__topico = das_component):
+                contador += respuesta_item.respuesta
+            if das_component == 'das_estres':
+                if contador <= 12:
+                    resultado = 'low'
+                elif contador <= 18:
+                    resultado = 'medium'
+                else:
+                    resultado = 'high'
+            else:
+                if contador <= 9:
+                    resultado = 'low'
+                elif contador <= 16:
+                    resultado = 'medium'
+                else:
+                    resultado = 'high'
+            ResultadoPerfil.objects.create(
+                perfil = perfil,
+                topico = das_component,
+                puntaje = contador,
+                resultado = resultado
+            )
+    else:       
+        contador = 0
+        resultado = ''
+        for respuesta_item in RespuestasPuente.objects.filter(perfil=perfil, item__topico = topico):
+            if respuesta_item.item.inverso:
+                contador += (-1)*respuesta_item.respuesta
+            else:
+                contador += respuesta_item.respuesta
+    
+        if topico == 'sa_mental':
+            if contador <= 46:
+                resultado = 'low'
+            elif contador <= 66:
+                resultado = 'medium'
+            else:
+                resultado = 'high'
+
+        if topico == 'asertividad':
+            if contador <= 32:
+                resultado = 'low'
+            elif contador <= 46:
+                    resultado = 'medium'
+            else:
+                resultado = 'high'
+        
+        if topico == 'ap_social':
+            if contador <= 17:
+                resultado = 'low'
+            elif contador <= 21:
+                    resultado = 'medium'
+            else:
+                resultado = 'high'
+
+        if topico == 'vi_pareja':
+            if contador <= 10:
+                resultado = 'low'
+            elif contador <= 23:
+                    resultado = 'medium'
+            else:
+                resultado = 'high'
+
+        ResultadoPerfil.objects.create(
+                perfil = perfil,
+                topico = topico,
+                puntaje = contador,
+                resultado = resultado
+            )
