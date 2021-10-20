@@ -9,7 +9,7 @@
     <meta name="description"
         content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
     {% block title %}
-  
+
     {% endblock title %}
 
     <link rel="shortcut icon" href="https://static-media-files-ianalytycs.sfo3.digitaloceanspaces.com/img/favicon.ico"
@@ -21,19 +21,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-
-
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{% static 'sidebar.css' %}">
-    
-    <style>
-        body {
-            background-color: #ffe3f5;
-        }
 
-        .unfv-color, input, select {
+
+
+    <style>
+        .unfv-color,
+        input,
+        select {
             color: #97449e !important;
         }
 
@@ -56,6 +51,7 @@
         .card {
             margin-bottom: 2rem;
             border-color: #ffffff;
+            box-shadow: 2px 2px 5px #0d0d3893;
         }
 
         .btn-unfv-color-success {
@@ -68,12 +64,11 @@
             color: #0d0d38;
         }
 
-        .modal {
-            background-color: #97449e;
-        }
-
-        .color-dark{
+        .color-dark {
             color: black;
+        }
+        .far:hover{
+            color: rgb(231, 133, 255);
         }
     </style>
     {% block style %}
@@ -81,29 +76,27 @@
 </head>
 
 <body>
-
     <div class="page-wrapper chiller-theme toggled">
-        
-
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
             <i class="fas fa-bars"></i>
         </a>
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
                 <div class="sidebar-brand">
-                    <a href="#">Sentirse Bien</a>
+                    <a href="#">Sentirse Bien <img class="ml-1" src="{% static 'img/shoesLogo.png' %}" alt="Logotipo" width="20px"> </a>
                     <div id="close-sidebar">
-                        <i class="fas fa-times"></i>
+                        <i class="far fa-window-close"></i>
                     </div>
                 </div>
                 <div class="sidebar-header">
                     <div class="user-info">
                         <span class="user-name">
-                            <a class="color-dark" href="{% url 'ver_perfil' %}"><strong>{{perfil.usuario.get_full_name}}</strong></a>
+                            <a class="color-dark"
+                                href="{% url 'ver_perfil' %}"><strong>{{perfil.usuario.get_full_name}}</strong></a>
                         </span>
                         <span class="user-role">USUARIO: {{perfil.tipo_usuario|upper}}</span>
-                        <span class="user-status">
-                            <i class="fa fa-circle"></i>
+                        <span class="user-status" style="font-size: 1rem;">
+                            <i style="font-size: 0.7rem;" class="fa fa-circle"></i>
                             <span>Online</span>
                         </span>
                     </div>
@@ -136,15 +129,11 @@
                             <a href="#">
                                 <i class="fa fa-book"></i>
                                 <span>Documentation</span>
-                                <span class="badge badge-pill badge-primary">Beta</span>
                             </a>
                         </li>
-                        
+
                     </ul>
                 </div>
-
-
-
                 <!-- sidebar-menu  -->
             </div>
             <!-- sidebar-content  -->
@@ -168,8 +157,6 @@
         </nav>
         <!-- sidebar-wrapper  -->
 
-        
-
         <main class="page-content">
             <div class="container-fluid">
                 {% block content %}
@@ -181,7 +168,6 @@
     <!-- page-wrapper -->
 
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -190,7 +176,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="{% static 'sidebar.js' %}"></script>
-    
+
     {% block script %}
     {% endblock script %}
 </body>

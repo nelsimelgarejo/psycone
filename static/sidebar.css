@@ -39,8 +39,51 @@
     }
 }
 
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
 body {
-    font-size: 0.95rem;
+    font-size: 1.10rem;
+    font-family: 'Roboto Mono', monospace;
+    background: linear-gradient(270deg, #ed7eeb81, #5de7d996, #64c9ebb0);
+    background-size: 600% 600%;
+    -webkit-animation: AnimationName 31s ease infinite;
+    -moz-animation: AnimationName 31s ease infinite;
+    animation: AnimationName 31s ease infinite;
 }
 
 .page-wrapper .sidebar-wrapper, .sidebar-wrapper .sidebar-brand>a, .sidebar-wrapper .sidebar-dropdown>a:after, .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a:before, .sidebar-wrapper ul li a i, .page-wrapper .page-content, .sidebar-wrapper .sidebar-search input.search-menu, .sidebar-wrapper .sidebar-search .input-group-text, .sidebar-wrapper .sidebar-menu ul li a, #show-sidebar, #close-sidebar {
@@ -90,7 +133,8 @@ body {
     border-radius: 0 4px 4px 0px;
     width: 35px;
     transition-delay: 0.3s;
-    box-shadow: 1px 1px 4px 1px #b452bd;
+    box-shadow: 1px 1px 4px 1px rgb(231, 133, 255);
+    animation: alternate-reverse;
 }
 
 .page-wrapper.toggled #show-sidebar {
@@ -98,6 +142,8 @@ body {
 }
 
 /*----------------sidebar-wrapper----------------*/
+
+/*Barra delgada que acompaña al SIDE*/
 
 .sidebar-wrapper {
     width: 260px;
@@ -107,7 +153,7 @@ body {
     top: 0;
     left: -300px;
     z-index: 999;
-    box-shadow: 0px -1px 5px #b452bd;
+    box-shadow: 2px -1px 5px rgb(231, 133, 255);
 }
 
 .sidebar-wrapper ul {
@@ -194,7 +240,7 @@ body {
 .sidebar-wrapper .sidebar-header .user-info .user-status i {
     font-size: 8px;
     margin-right: 4px;
-    color: #72dd72;
+    color: #4ee692;
 }
 
 /*-----------------------sidebar-search------------------------*/
@@ -324,7 +370,7 @@ body {
 
 .badge-sonar {
     display: inline-block;
-    background: #980303;
+    background: #ff5550;
     border-radius: 50%;
     height: 8px;
     width: 8px;
@@ -337,7 +383,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    border: 2px solid #980303;
+    border: 2px solid #ff5550;
     opacity: 0;
     border-radius: 50%;
     width: 100%;
@@ -408,8 +454,10 @@ body {
 
 /*-----------------------------chiller-theme-------------------------------------------------*/
 
+/*Barra lateral Sidebar*/
+
 .chiller-theme .sidebar-wrapper {
-    background: #b452bd;
+    background: #ffffff;
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-header, .chiller-theme .sidebar-wrapper .sidebar-search, .chiller-theme .sidebar-wrapper .sidebar-menu {
@@ -438,8 +486,9 @@ body {
 }
 
 .chiller-theme .sidebar-wrapper ul li:hover a i, .chiller-theme .sidebar-wrapper .sidebar-dropdown .sidebar-submenu li a:hover:before, .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu:focus+span, .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active a i {
-    color: #b452bd;
-    text-shadow: 0px 0px 10px rgba(22, 199, 255, 0.5);
+    color: rgb(231, 133, 255);
+    font-size: 1rem;
+    text-shadow: 0px 0px 5px rgb(255, 255, 255);
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-menu ul li a i, .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown div, .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu, .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text {
@@ -452,8 +501,8 @@ body {
 
 .chiller-theme .sidebar-footer {
     background: #ffffff;
-    box-shadow: 0px -1px 5px #b452bd;
-    border-top: 1px solid #b452bd;
+    box-shadow: 0px -1px 5px rgb(231, 133, 255);
+    border-top: 1px solid rgb(231, 133, 255);
 }
 
 .chiller-theme .sidebar-footer>a:first-child {

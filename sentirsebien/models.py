@@ -163,7 +163,7 @@ class RespuestasPuente(models.Model):
         ordering = ['-creado']
 
     def __str__(self):
-        return f"{self.topico}"
+        return f"{self.perfil.usuario.first_name, self.item.topico}"
 
     def save(self, *args, **kwargs):
         self.estado = True

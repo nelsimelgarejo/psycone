@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render, get_object_or_404
-from sentirsebien.models import Perfil, FichaSociodemografica, ComponenteBienestar
+from sentirsebien.models import Perfil, FichaSociodemografica, ComponenteBienestar, ResultadoPerfil
 from sentirsebien.forms import FichaSociodemograficaForm
 
 # Create your views here.
@@ -16,6 +16,7 @@ def home(request):
                 topico = componente.topico,
                 completado = componente.completado
             )
+
 
     if FichaSociodemografica.objects.filter(perfil = perfil).exists():
         is_ficha = True

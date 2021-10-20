@@ -1,7 +1,7 @@
 from django.urls import path
 from psycone import settings
 from django.conf.urls.static import static
-from .views import usuarios, dashboard
+from .views import usuarios, dashboard, processing
 
 urlpatterns = [
     #Login y registro
@@ -20,6 +20,11 @@ urlpatterns = [
     path('ficha/sociodemografica', dashboard.ficha_sociodemografica, name='ficha_sociodemografica'),
     path('ficha/form', dashboard.ficha_form, name='ficha_form'),
     path('ver/perfil', dashboard.ver_perfil, name='ver_perfil'),
+
+    #Processing
+    path('primer/item', processing.primer_item, name='primer_item'),
+    path('respuesta/sa_mental', processing.respuesta_sa_mental, name='respuesta_sa_mental'),
+
 ]
 if settings.IN_DEVELOPMENT:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
