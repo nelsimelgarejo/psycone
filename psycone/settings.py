@@ -77,12 +77,25 @@ IN_DEVELOPMENT =  True
 
 if IN_DEVELOPMENT:
     DEBUG = True
-
     ALLOWED_HOSTS = []
-    DATABASES = {
+
+    SQLITE = False
+    if SQLITE:
+        DATABASES = {
             'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
+            }
+        }
+    else:
+        DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'psycodb',
+            'USER': 'postgres',
+            'PASSWORD': 'qazwsx,.-UNI2020pe',
+            'HOST': 'localhost',
+            'PORT': '',
         }
     }
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
