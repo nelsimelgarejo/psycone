@@ -7,7 +7,7 @@
 
 {% block style %}
 <style>
-    .dasElement{
+    .dasElement {
         box-shadow: 2px 2px 2px 1px rgb(241, 83, 83);
     }
 </style>
@@ -26,10 +26,45 @@
 <div class="row text-center" id="resultados">
 
 </div>
+
+<div id="modal_videos">
+
+</div>
+
 {% endblock content %}
 
 {% block script %}
 <script>
+    
+    $('body').on('click', '.ver_video', function () {
+        let url_video = $(this).attr('data-url');
+        let title = $(this).attr('data-title');
+        $('#modal_videos').empty();
+        $('#modal_videos').append(`
+         <div class="modal fade" id="modalVideo" data-backdrop="static" data-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+         <div class="modal-dialog modal-lg">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <h5 class="modal-title" id="staticBackdropLabel"><b>Vídeo informativo: ${title}</b></h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                     </button>
+                 </div>
+                 <div class="modal-body">
+                     <iframe width="100%" height="506" src="${url_video}?autoplay=1"
+                         title="YouTube video player" frameborder="0"
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                         allowfullscreen></iframe>
+                 </div>
+             </div>
+          </div>
+        </div>
+    `);
+    $('#modalVideo').modal('show');
+    });
+
+
     $(function () {
         $.ajax({
             url: "{% url 'get_resultados_json' %}",
@@ -49,7 +84,7 @@
                                 </div>
                                 <div class="text-center">
                                     <a href="#" class="card-link">Información</a>
-                                    <a href="#" class="card-link">Vídeo <i class="fas fa-video"></i></a>
+                                    <a href="#" data-title="${element.topico}" data-url="https://www.youtube.com/embed/Vb0g_WmVKrY" class="card-link ver_video">Vídeo <i class="fas fa-video"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +99,7 @@
                                 </div>
                                 <div class="text-center">
                                     <a href="#" class="card-link">Información</a>
-                                    <a href="#" class="card-link">Vídeo <i class="fas fa-video"></i></a>
+                                    <a href="#" data-title="${element.topico}" data-url="https://www.youtube.com/embed/Vb0g_WmVKrY" class="card-link ver_video">Vídeo <i class="fas fa-video"></i></a>
                                 </div>
                             </div>
                         </div>

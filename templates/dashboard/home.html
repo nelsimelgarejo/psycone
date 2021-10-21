@@ -85,13 +85,12 @@
             <div class="card-body">
                 <h5 class="card-title">Cuestionario de Salud Mental Positiva de Lluch</h5>
                 {% if is_sm %}
-                <a href="#" 
-                            class="btn btn-sm btn-unfv-color-completed" data-target="#staticBackdrop2">Completado <i
+                <a href="#" class="btn btn-sm btn-unfv-color-completed" data-target="#staticBackdrop2">Completado <i
                         class="fa fa-tachometer-alt"></i></a>
                 {% else %}
                 <span id="id_sa_mental"><a data-toggle="modal" data-topico='sa_mental' href="#"
-                    class="btn btn-sm btn-unfv-color-success primer_item" data-target="#staticBackdrop2">Iniciar
-                    Test <i class="fa fa-tachometer-alt"></i></a></span>
+                        class="btn btn-sm btn-unfv-color-success primer_item" data-target="#staticBackdrop2">Iniciar
+                        Test <i class="fa fa-tachometer-alt"></i></a></span>
                 {% endif %}
             </div>
         </div>
@@ -103,15 +102,14 @@
                 <h5 class="card-title">Escalas de Depresión Ansiedad y Estrés</h5>
                 <span id="id_ae_depresion">
                     {% if is_das %}
-                    <a href="#" 
-                            class="btn btn-sm btn-unfv-color-completed" data-target="#staticBackdrop2">Completado <i
-                        class="fa fa-tachometer-alt"></i></a>
+                    <a href="#" class="btn btn-sm btn-unfv-color-completed" data-target="#staticBackdrop2">Completado <i
+                            class="fa fa-tachometer-alt"></i></a>
                     {% else %}
                     <a data-toggle="modal" data-topico='ae_depresion' href="#"
                         class="btn btn-sm btn-unfv-color-success primer_item" data-target="#staticBackdrop3">Iniciar
                         Test <i class="fa fa-tachometer-alt"></i></a>
                     {% endif %}
-                    
+
                 </span>
             </div>
         </div>
@@ -122,15 +120,14 @@
                 <h5 class="card-title">Escala de Apoyo Social Percibido (MSPSS)</h5>
                 <span id="id_ap_social">
                     {% if is_mspss %}
-                    <a href="#" 
-                            class="btn btn-sm btn-unfv-color-completed" data-target="#staticBackdrop2">Completado <i
-                        class="fa fa-tachometer-alt"></i></a>
+                    <a href="#" class="btn btn-sm btn-unfv-color-completed" data-target="#staticBackdrop2">Completado <i
+                            class="fa fa-tachometer-alt"></i></a>
                     {% else %}
                     <a data-toggle="modal" data-topico='ap_social' href="#"
                         class="btn btn-sm btn-unfv-color-success primer_item" data-target="#staticBackdrop4">Iniciar
                         Test <i class="fa fa-tachometer-alt"></i></a>
                     {% endif %}
-                    
+
                 </span>
             </div>
         </div>
@@ -141,15 +138,14 @@
                 <h5 class="card-title">Escala de Asertividad de Rathus</h5>
                 <span id="id_asertividad">
                     {% if is_asert %}
-                    <a href="#" 
-                            class="btn btn-sm btn-unfv-color-completed" data-target="#staticBackdrop2">Completado <i
-                        class="fa fa-tachometer-alt"></i></a>
+                    <a href="#" class="btn btn-sm btn-unfv-color-completed" data-target="#staticBackdrop2">Completado <i
+                            class="fa fa-tachometer-alt"></i></a>
                     {% else %}
                     <a data-toggle="modal" data-topico='asertividad' href="#"
                         class="btn btn-sm btn-unfv-color-success primer_item" data-target="#staticBackdrop5">Iniciar
                         Test <i class="fa fa-tachometer-alt"></i></a>
                     {% endif %}
-                    
+
                 </span>
             </div>
         </div>
@@ -160,15 +156,14 @@
                 <h5 class="card-title">Escala de violencia de pareja</h5>
                 <span id="id_vi_pareja">
                     {% if is_pareja %}
-                    <a href="#" 
-                            class="btn btn-sm btn-unfv-color-completed" data-target="#staticBackdrop2">Completado <i
-                        class="fa fa-tachometer-alt"></i></a>
+                    <a href="#" class="btn btn-sm btn-unfv-color-completed" data-target="#staticBackdrop2">Completado <i
+                            class="fa fa-tachometer-alt"></i></a>
                     {% else %}
                     <a data-toggle="modal" data-topico='vi_pareja' href="#"
                         class="btn btn-sm btn-unfv-color-success primer_item" data-target="#staticBackdrop6">Iniciar
                         Test <i class="fa fa-tachometer-alt"></i></a>
                     {% endif %}
-                    
+
                 </span>
             </div>
         </div>
@@ -530,10 +525,10 @@
                         </div>
                     </div>
 
-                   
-                        <span>Durante los 2 últimos meses ha tenido un problema:</span>
-                   
-                    
+
+                    <span>Durante los 2 últimos meses ha tenido un problema:</span>
+
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -948,6 +943,9 @@
     </div>
 </div>
 
+<div id="modal_bienvenida">
+
+</div>
 {% endblock content %}
 
 {% block script %}
@@ -957,6 +955,32 @@
 {% endif %}
 
 <script>
+    $(function () {
+        $('#modal_bienvenida1').append(`
+         <div class="modal fade" id="modalVideo" data-backdrop="static" data-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+         <div class="modal-dialog modal-lg">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <h5 class="modal-title" id="staticBackdropLabel"><b>Bienvenido a la SENTIRSE BIEN</b></h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                     </button>
+                 </div>
+                 <div class="modal-body">
+                     <iframe width="100%" height="506" src="https://www.youtube.com/embed/Q7yfsNFoUvk?autoplay=1&t=125"
+                         title="YouTube video player" frameborder="0"
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                         allowfullscreen></iframe>
+                 </div>
+             </div>
+          </div>
+        </div>
+    `);
+        $('#modalVideo').modal('show');
+    });
+
+
     $('.primer_item').on('click', function () {
         let topico = $(this).attr("data-topico");
         data = { 'topico': topico }
