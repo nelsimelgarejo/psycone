@@ -139,8 +139,8 @@
             <form method="POST" autocomplete="off">
                 {% csrf_token %}
                 <div class="input-group">
-                    <label class="label-input"><b>Correo electrónico:</b></label>
-                    <input type="email" name="email" required>
+                    <label class="label-input"><b>Código universitario:</b></label>
+                    <input type="text" name="username" required>
                 </div>
                 <div class="input-group">
                     <label class="label-input"><b>Contraseña:</b></label>
@@ -150,8 +150,8 @@
             </form>
             <div class="row mt-4">
                 <div class="col-md-6 text-left">
-                    <a data-toggle="modal" data-target="#staticBackdropPassword" class="unfv-color">Olvidé mi contraseña <i
-                            class="fas fa-key"></i></a>
+                    <a data-toggle="modal" data-target="#staticBackdropPassword" class="unfv-color">Olvidé mi contraseña
+                        <i class="fas fa-key"></i></a>
                 </div>
                 <div class="col-md-6 text-right">
                     <a data-toggle="modal" data-target="#staticBackdrop" class="unfv-color">Activar cuenta <i
@@ -168,33 +168,73 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header" style="background-color: #97449e; color: #fff;">
-                    <h5 class="modal-title" id="staticBackdropLabel">Activar cuenta de usuario</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Activar cuenta en UNIVERSIDADES parte de:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" id="activar_cuenta" autocomplete="off">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label for="codigoUNFV">Código universitario:</label>
-                            <input type="text" name="username" class="form-control" id="codigoUNFV"
-                                onkeyup="javascript:this.value=this.value.toLowerCase();" aria-describedby="emailHelp"
-                                required>
-                            <small id="emailHelp" class="form-text text-muted">Debe ingresar su código
-                                universitario.</small>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">UNFV</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                aria-controls="profile" aria-selected="false">RED ACACIA</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <h5>Universidad Nacional Federico Villareal</h5>
+                            <form method="POST" id="activar_cuenta" autocomplete="off" class="mt-2">
+                                {% csrf_token %}
+                                <input type="text" name="universidad" value="unfv" hidden>
+                                <div class="form-group">
+                                    <label for="username">Código universitario: <span id="respuestaCodigo"></span>
+                                    </label>
+                                    <input type="number" name="username" class="form-control" id="codigo_universitario"
+                                        aria-describedby="codigoHelp" required>
+                                    <small id="codigoHelp" class="form-text text-muted">Debe ingresar su código
+                                        universitario.</small>
+                                </div>
+                                <div id="dni_user">
+
+                                </div>
+
+                                <div id="contrasenias">
+
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <label for="emailUNFV">Correo electrónico universitario (@unfv.edu.pe):</label>
-                            <input type="email" name="email" class="form-control" id="emailUNFV" required>
-                            <small id="emailHelp" class="form-text text-muted">Le enviaremos un correo de
-                                autenticación.</small>
+
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <h5>RED ACACIA</h5>
+                            <form method="POST" id="activar_cuenta_acacia" autocomplete="off" class="mt-2">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="codigoUNFV">Código universitario:</label>
+                                    <input type="text" name="username" class="form-control" id="codigoUNFV"
+                                        onkeyup="javascript:this.value=this.value.toLowerCase();"
+                                        aria-describedby="emailHelp" required>
+                                    <small id="emailHelp" class="form-text text-muted">Debe ingresar su código
+                                        universitario.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="emailUNFV">Correo electrónico:</label>
+                                    <input type="email" name="email" class="form-control" id="emailUNFV" required>
+                                    <small id="emailHelp" class="form-text text-muted">Le enviaremos un correo de
+                                        autenticación.</small>
+                                </div>
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-outline-unfv-color">Activar <i
+                                            class="far fa-paper-plane"></i></button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="text-right">
-                            <button type="submit" class="btn btn-outline-unfv-color">Activar <i
-                                    class="far fa-paper-plane"></i></button>
-                        </div>
-                    </form>
+                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -224,13 +264,15 @@
                         <div class="form-group">
                             <label for="emailUNFV">Correo electrónico universitario (@unfv.edu.pe):</label>
                             <input type="email" name="email" class="form-control" id="emailUNFV" required>
-                            <small id="emailHelp" class="form-text text-muted">Le enviaremos un token digital a su correo.</small>
+                            <small id="emailHelp" class="form-text text-muted">Le enviaremos un token digital a su
+                                correo.</small>
                         </div>
                         <div class="text-right">
                             <button type="submit" class="btn btn-outline-unfv-color">Recuperar contraseña <i
                                     class="far fa-paper-plane"></i></button>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
@@ -243,6 +285,101 @@
         crossorigin="anonymous"></script>
 
     <script>
+        $('#codigo_universitario').on('keyup', function (e) {
+            let codigo = e.target.value;
+            if (codigo.length >= 10) {
+                $.ajax({
+                    url: "{% url 'codigo_universitario' %}",
+                    type: 'GET',
+                    dataType: 'json', // added data type
+                    data: { 'codigo_universitario': codigo },
+                    success: function (res) {
+                        $('#contrasenias').empty(); //Limpiar las contraseñas
+                        $('#respuestaCodigo').empty();
+                        $('#dni_user').empty();
+                        if (res.existe) {
+                            if (res.activado) {
+                                $('#respuestaCodigo').append(`
+                                <span class="badge badge-success">La cuenta ya está activada</span>
+                                `);
+                            } else {
+                                $('#respuestaCodigo').append(`
+                                <span class="badge badge-success">Genial, existe la cuenta, continúa</span>
+                                `);
+                                $('#dni_user').append(`
+                                <div class="form-group">
+                                    <label for="dni_usuario">N° DNI: <span
+                                        id="respuestaDNI"></label>
+                                    <input type="number" name="dni" class="form-control" id="dni_usuario"
+                                        required>
+                                </div>
+                                `);
+                            }
+                        } else {
+                            $('#respuestaCodigo').append(`
+                                <span class="badge badge-warning">Lo sentimos, no tenemos registrado dicho código</span>
+                                `);
+                        }
+                    }
+                });
+            }
+        });
+
+        $('body').on('keyup', '#dni_usuario', function (e) {
+            let dni = e.target.value;
+            let codigo_universitario = $('#codigo_universitario').val();
+            if (dni.length >= 8) {
+                $.ajax({
+                    url: "{% url 'dni_usuario' %}",
+                    type: 'GET',
+                    dataType: 'json', // added data type
+                    data: { 'dni_usuario': dni, 'codigo_universitario': codigo_universitario },
+                    success: function (res) {
+                        $('#respuestaDNI').empty();
+                        $('#contrasenias').empty();
+                        if (res.existe) {
+                            if (!res.activado) {
+                                $('#respuestaDNI').append(`
+                                <span class="badge badge-success">Excelente, continúa</span>
+                                `);
+                                $('#contrasenias').append(`
+                                <span><b>OJO: Tu contraseña no debe ser similar a tu código o DNI.</b></span>
+                                <div class="form-group">
+                                    <label for="password1">Crear una contraseña:</label>
+                                    <input type="text" name="password1" class="form-control" id="password1"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password2">Repetir la contraseña anterior:</label>
+                                    <input type="text" name="password2" class="form-control" id="password2"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect2">Elegir el tipo de usuario: </label>
+                                    <select class="form-control" name="tipo_usuario" id="exampleFormControlSelect2" required>
+                                        <option value="">------------------------------------</option>
+                                        <option value="docente">Docente</option>
+                                        <option value="estudiante">Estudiante/Egresado</option>
+                                        <option value="administrativo">Personal administrativo</option>
+                                    </select>
+                                </div>
+
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-outline-unfv-color">Activar cuenta <i
+                                            class="far fa-paper-plane"></i></button>
+                                </div>
+                                `);
+                            }
+                        } else {
+                            $('#respuestaDNI').append(`
+                                <span class="badge badge-warning">Lo sentimos, no coincide con tu número de DNI</span>
+                            `);
+                        }
+                    }
+                });
+            }
+        });
+
         $('#activar_cuenta').submit(function (e) {
             e.preventDefault();
             $form = $(this)
@@ -258,6 +395,7 @@
                     else {
                         console.log('Enviado súper bien');
                         $('#activar_cuenta')[0].reset();
+                        $('#dni_user').empty();
                     }
                 },
                 cache: false,

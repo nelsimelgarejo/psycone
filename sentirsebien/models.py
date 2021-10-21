@@ -11,18 +11,20 @@ TIPOS_USUARIOS = (
     ('administrativo', 'Personal administrativo')
 )
 
-TIPOS_UNVIERSIDADES = (
+TIPOS_UNIVERSIDADES = (
     ('unfv', 'Universidad Nacional Federico Villareal'),
     ('red_acacia', 'Red Acacia'),
+    ('otros', 'General'),
 )
 
 class Perfil(models.Model):
     id = models.UUIDField(primary_key=True, editable=False)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     codigo_universitario = models.CharField(max_length=20, blank=True, null=True)
-    universidad = models.CharField(choices=TIPOS_UNVIERSIDADES, max_length=20, blank=True, null=True)
+    universidad = models.CharField(choices=TIPOS_UNIVERSIDADES, max_length=20, blank=True, null=True)
     tipo_usuario = models.CharField(choices=TIPOS_USUARIOS, max_length=20, blank=True, null=True)
     telefono = models.CharField(max_length=20, blank=True, null=True)
+    dni = models.CharField(max_length=10, blank=True, null=True)
     facebook = models.URLField( blank=True, null=True)
     instagram = models.URLField(blank=True, null=True)
     linkedin = models.URLField(blank=True, null=True)
@@ -47,8 +49,8 @@ class FichaSociodemografica(models.Model):
     anio_ingreso = models.PositiveIntegerField(default=0)
     anio_estudio_actual = models.CharField(max_length=10, blank=True, null=True)
     is_becario = models.BooleanField(default=False)
-    facultad = models.CharField(max_length=30, blank=True, null=True)
-    escuela = models.CharField(max_length=30, blank=True, null=True)
+    facultad = models.CharField(max_length=255, blank=True, null=True)
+    escuela = models.CharField(max_length=255, blank=True, null=True)
     sexo = models.CharField(max_length=30, blank=True, null=True)
     genero = models.CharField(max_length=30, blank=True, null=True)
     estado_civil = models.CharField(max_length=30, blank=True, null=True)
@@ -196,3 +198,31 @@ class ResultadoPerfil(models.Model):
         if not self.id:
             self.id = uuid.uuid4()
         return super(ResultadoPerfil, self).save(*args, **kwargs)
+
+
+class DataUNFV(models.Model):
+    id = models.UUIDField(primary_key=True, editable=False)
+    facultad = models.CharField(max_length=255)
+    escuela = models.CharField(max_length=255)
+    anio_ingreso = models.PositiveBigIntegerField(default=0)
+    codigo_estudiante = models.CharField(max_length=20)
+    correo = models.EmailField()
+    dni = models.CharField(max_length=20, blank=True, null=True)
+    nombre_completo = models.CharField(max_length=255)
+    activado = models.BooleanField(default=False)
+
+    estado = models.BooleanField(default=True)
+    creado = models.DateTimeField(auto_now_add=True)
+    actualizado = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-creado']
+
+    def __str__(self):
+        return f"{self.nombre_completo}"
+
+    def save(self, *args, **kwargs):
+        self.estado = True
+        if not self.id:
+            self.id = uuid.uuid4()
+        return super(DataUNFV, self).save(*args, **kwargs)

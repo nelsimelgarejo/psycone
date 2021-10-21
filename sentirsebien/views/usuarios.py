@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from sentirsebien.forms import SignUpForm, PerfilForm
 from django.shortcuts import redirect, render, get_object_or_404
 from sentirsebien.tasks import send_email_task
-from sentirsebien.models import Perfil
+from sentirsebien.models import Perfil, DataUNFV, FichaSociodemografica
 from django.core.signing import TimestampSigner
 
 
@@ -17,19 +17,14 @@ def ingreso_sistema(request):
         return redirect('home')
 
     if request.method == 'POST':
-        email =  request.POST.get('email')
+        username =  request.POST.get('username')
         password =  request.POST.get('password')
     
-        if User.objects.filter(email = email).exists():
-            usuario =  get_object_or_404(User, email =email)
-            user = authenticate(username=usuario.username, password=password)
+        if User.objects.filter(username = username).exists():
+            user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
-                perfil = Perfil.objects.filter(usuario = usuario).exists()
-                if perfil:
-                    return redirect('home')
-                else:
-                    return redirect('post_ingreso_universidades')
+                return redirect('home')
             else:
                 return render(request, 'usuarios/login.html')
         else:
@@ -40,23 +35,33 @@ def ingreso_sistema(request):
 
 def activar_cuenta(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        encoded_url = signing.dumps({"username": str(username), "email": str(email)})
+        form_user = SignUpForm(request.POST)
+        form_perfil = PerfilForm(request.POST)  
 
-        host = request.META.get('HTTP_HOST', '')
-        scheme_url = request.is_secure() and "https" or "http"
-        domain = f"{scheme_url}://{host}"
+        if form_user.is_valid() and form_perfil.is_valid():
+            usuario = form_user.save(commit = False)
+            perfil = form_perfil.save(commit=False)
+            codigo_universitario = request.POST.get('username')
+            password1 = request.POST.get('password1')
+            data_user = get_object_or_404(DataUNFV, codigo_estudiante=codigo_universitario)
+            usuario.first_name = data_user.nombre_completo
+            usuario.email = data_user.correo
+            usuario.save()
+            perfil.usuario = usuario
+            perfil.save()
+            data_user.activado = True
+            data_user.save()
 
-        subject = 'Activar cuenta en SENTIRSE BIEN'
-        message = render_to_string('correos/activar_cuenta.html', {
-                'username': username,
-                'email': email,
-                'ver_url': f"{domain}",
-                'encoded_url': f"{encoded_url}"
-            })
-        send_email_task(subject, message, [email])
-        return JsonResponse({'error': False, 'mensaje':'Se ha enviado un correo de activación a su correo'})
+            FichaSociodemografica.objects.create(
+                perfil = perfil,
+                anio_ingreso = int(data_user.codigo_estudiante[:4]), #Extrae las 4 primeros números para su años de ingreso
+                facultad = data_user.facultad,
+                escuela = data_user.escuela
+            )
+            return render(request, 'usuarios/login.html')
+            
+        else:
+            return JsonResponse({'error': True, 'mensaje':'Se ha enviado un correo de activación a su correo'})
     else:
         return JsonResponse({'error': True, 'mensaje':'Existe un error en la petición'})
 
@@ -126,7 +131,6 @@ def salir_cuenta(request):
     logout(request)
     return redirect('ingreso_sistema')
 
-
 def cambiar_contrasenia(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -151,7 +155,6 @@ def cambiar_contrasenia(request):
     else:
         return JsonResponse({'error': True, 'mensaje':'Existe un error en la petición'})
 
-
 def cambiar_contrasenia_encode(request, encoded_url):
     try:
         signer = TimestampSigner()
@@ -170,5 +173,34 @@ def cambiar_contrasenia_encode(request, encoded_url):
     except:
         return render(request, 'usuarios/expirado.html')
 
+def codigo_universitario(request):
+    myDict = dict(request.GET)
+    codigo_estudiante = myDict['codigo_universitario'][0]
 
+    response = {}
+    if DataUNFV.objects.filter(codigo_estudiante = codigo_estudiante, activado = False).exists():
+        response['activado'] = False
+        response['existe'] = True
+    elif DataUNFV.objects.filter(codigo_estudiante = codigo_estudiante, activado = True).exists():
+        response['activado'] = True
+        response['existe'] = True
+    else:
+        response['activado'] = False
+        response['existe'] = False
 
+    return JsonResponse(response)
+    
+def dni_usuario(request):
+    myDict = dict(request.GET)
+    dni = myDict['dni_usuario'][0]
+    codigo_universitario = myDict['codigo_universitario'][0]
+
+    response = {}
+    if DataUNFV.objects.filter(codigo_estudiante=codigo_universitario, dni = dni, activado = False).exists():
+        response['activado'] = False
+        response['existe'] = True
+    else:
+        response['activado'] = True
+        response['existe'] = False
+
+    return JsonResponse(response)

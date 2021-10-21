@@ -1,6 +1,6 @@
 from django.http.response import JsonResponse
 from django.shortcuts import redirect, render, get_object_or_404
-from sentirsebien.models import Perfil, FichaSociodemografica, ComponenteBienestar, ResultadoPerfil
+from sentirsebien.models import DataUNFV, Perfil, FichaSociodemografica, ComponenteBienestar, ResultadoPerfil
 from sentirsebien.forms import FichaSociodemograficaForm
 from sentirsebien.models import topicos
 

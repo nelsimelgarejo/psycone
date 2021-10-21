@@ -14,6 +14,8 @@ urlpatterns = [
     path('ingreso/bienvenida', usuarios.previo_ingreso, name='previo_ingreso'),
     path('ingreso/universidades', usuarios.post_ingreso_universidades, name='post_ingreso_universidades'),
     path('ingreso/otros', usuarios.post_ingreso_otros, name='post_ingreso_otros'),
+    path('codigo/universitario/validacion', usuarios.codigo_universitario, name='codigo_universitario'),
+    path('dni/usuario/validacion', usuarios.dni_usuario, name='dni_usuario'),
     
     #Bashboard
     path('home', dashboard.home, name='home'),

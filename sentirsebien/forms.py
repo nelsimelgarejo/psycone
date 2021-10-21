@@ -8,13 +8,12 @@ from django import forms
 class SignUpForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2',)
-
+        fields = ('username', 'password1', 'password2',)
 
 class PerfilForm(forms.ModelForm):
     class Meta:
         model = Perfil
-        fields = ['universidad', 'tipo_usuario', 'telefono']
+        fields = ['universidad', 'tipo_usuario', 'dni']
 
 class FichaSociodemograficaForm(forms.ModelForm):
     class Meta:

@@ -75,10 +75,12 @@
     }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap");
+
+
 body {
     font-size: 1.10rem;
-    font-family: 'Roboto Mono', monospace;
+    font-family: "Quicksand", sans-serif;
     background: linear-gradient(270deg, #ed7eeb81, #5de7d996, #64c9ebb0);
     background-size: 600% 600%;
     -webkit-animation: AnimationName 31s ease infinite;
