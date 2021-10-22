@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'psycone.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-IN_DEVELOPMENT =  True
+IN_DEVELOPMENT =  False
 
 if IN_DEVELOPMENT:
     DEBUG = True
@@ -87,7 +87,7 @@ if IN_DEVELOPMENT:
             'NAME': BASE_DIR / 'db.sqlite3',
             }
         }
-    else:
+    else: #LocalPostgreSQL
         DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -105,11 +105,11 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'defaultdb',
-            'USER': 'doadmin',
-            'PASSWORD': 'jih4acktojr6fney',
-            'HOST': 'database-production-iacerts-do-user-9333176-0.b.db.ondigitalocean.com',
-            'PORT': '25060',
+            'NAME': 'dreamdb',
+            'USER': 'dream_admin',
+            'PASSWORD': 'qazwsx,.-UNI',
+            'HOST': 'localhost',
+            'PORT': '',
         }
     }
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
