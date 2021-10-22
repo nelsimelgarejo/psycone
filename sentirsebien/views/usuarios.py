@@ -14,7 +14,7 @@ from django.core.signing import TimestampSigner
 def ingreso_sistema(request):
 
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('ver_perfil')
 
     if request.method == 'POST':
         username =  request.POST.get('username')
@@ -24,7 +24,7 @@ def ingreso_sistema(request):
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
-                return redirect('home')
+                return redirect('ver_perfil')
             else:
                 return render(request, 'usuarios/login.html')
         else:

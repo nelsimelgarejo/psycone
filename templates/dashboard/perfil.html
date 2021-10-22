@@ -36,6 +36,11 @@
         visibility: visible;
         border: 2px solid rgb(236, 160, 255) !important;
     }
+
+    #swalFicha{
+        font-size: 1.2rem !important;
+        color: #97449e !important;
+    }
 </style>
 {% endblock style %}
 
@@ -45,6 +50,7 @@
     <div class="col-lg-4 col-md-12">
         <div class="card">
             <div class="card-body">
+                <input type="text" name="full_name" id="full_name" value="{{perfil.usuario.get_full_name}}" hidden>
                 <h5 class="card-title"><b>{{perfil.usuario.get_full_name}}</b></h5>
                 <p class="card-text"><b>AÑO DE INGRESO:</b> {{ficha.anio_ingreso}}</p>
                 <p class="card-text"><b>FACULTAD:</b> {{ficha.facultad}} </p>
@@ -55,7 +61,8 @@
                 <li class="list-group-item"><b>N° DNI:</b> {{perfil.dni}}</li>
                 <li class="list-group-item h3">
                     <div class="row text-center">
-                        <div class="col-4">
+                        <!--
+                            <div class="col-4">
                             {% if not ficha.facebook %}
                             <a href="ficha.facebook"><i class="fab fa-facebook-square"></i></a>
                             {% endif %}
@@ -71,6 +78,7 @@
                             <a href="ficha.linkedin"><i style="color: rgb(1, 88, 202);" class="fab fa-linkedin"></i></a>
                             {% endif %}
                         </div>
+                        -->
                     </div>
                 </li>
             </ul>
@@ -120,11 +128,11 @@
         <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="pills-blog-tab" data-toggle="pill" href="#pills-blog" role="tab"
-                    aria-controls="pills-blog" aria-selected="true">Ficha sociodemográfica</a>
+                    aria-controls="pills-blog" aria-selected="true"><b>Ficha sociodemográfica</b></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-                    aria-controls="pills-profile" aria-selected="false">Perfil</a>
+                    aria-controls="pills-profile" aria-selected="false"><b>Perfil</b></a>
             </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
@@ -890,8 +898,21 @@
 {% block script %}
 <script src="{% static 'dataforms.js' %}"></script>
 <script src="{% static 'fac_escuelas.js' %}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-{% if ficha.nacimiento_departamento %}
+{% if not ficha.nacimiento_departamento %}
+<script>
+    $(function () {
+    let full_name = $('#full_name').val();
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: `<p id="swalFicha">Hola ${full_name}. ¡¡BIENVENIDO!!<br><br>Para continuar pedimos que actualices tu FICHA SOCIODEMOGRÁFICA</p>`,
+        showConfirmButton: true
+    });
+});
+</script>
+{% endif %}
 <script>
     var dep_select = {{ ficha.nacimiento_departamento }};
     departamentos.map(element => {
@@ -952,6 +973,4 @@
     });
 
 </script>
-{% endif %}
-
 {% endblock script %}
