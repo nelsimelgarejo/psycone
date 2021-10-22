@@ -43,11 +43,40 @@ class Perfil(models.Model):
         return super(Perfil, self).save(*args, **kwargs)
 
 
+ANIOS_ESTUDIOS_ACTUAL = (
+    ('anio1', 'Año 1'),
+    ('anio2', 'Año 2'),
+    ('anio3', 'Año 3'),
+    ('anio4', 'Año 4'),
+    ('anio5', 'Año 5'),
+    ('anio6', 'Año 6'),
+    ('egresado', 'Egresado')
+)
+
+NACIOALIDAD = (
+    ('peru', 'Perú'),
+    ('chile', 'Chile'),
+    ('paraguay', 'Paraguay'),
+    ('colombia', 'Colombia'),
+    ('venezuela', 'Venezuela'),
+    ('otros', 'Otros')
+)
+
+VIVE_CON = (
+    ('solo', 'Solo (a)'),
+    ('pareja', 'Con mi pareja'),
+    ('familia', 'Con mi familia (padres y hermanos)'),
+    ('amigos', 'Con amigos'),
+    ('hermanos', 'Con mis hermanos'),
+    ('parientes', 'Con parientes')
+)
+
+
 class FichaSociodemografica(models.Model):
     id = models.UUIDField(primary_key=True, editable=False)
     perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE)
     anio_ingreso = models.PositiveIntegerField(default=0)
-    anio_estudio_actual = models.CharField(max_length=10, blank=True, null=True)
+    anio_estudio_actual = models.CharField(choices=ANIOS_ESTUDIOS_ACTUAL, max_length=10, blank=True, null=True)
     is_becario = models.BooleanField(default=False)
     facultad = models.CharField(max_length=255, blank=True, null=True)
     escuela = models.CharField(max_length=255, blank=True, null=True)
@@ -61,12 +90,12 @@ class FichaSociodemografica(models.Model):
     residencia_provincia = models.CharField(max_length=30, blank=True, null=True)
     residencia_distrito = models.CharField(max_length=30, blank=True, null=True)
     tipo_colegio = models.CharField(max_length=30, blank=True, null=True)
-    nacionalidad = models.CharField(max_length=30, blank=True, null=True)
+    nacionalidad = models.CharField(choices=NACIOALIDAD, default= 'peru',max_length=30, blank=True, null=True)
     tiempo_lugar_residencia = models.PositiveIntegerField(default=0)
     religion = models.CharField(max_length=30, blank=True, null=True)
     nivel_socioeconomico = models.CharField(max_length=30, blank=True, null=True)
     vives_solo = models.BooleanField(default=False) 
-    vive_con = models.CharField(max_length=100, blank=True, null=True)
+    vive_con = models.CharField(choices=VIVE_CON, max_length=20, blank=True, null=True)
     con_cuantos_vives = models.PositiveIntegerField(default=0)
     situacion_ocupacional = models.CharField(max_length=100, blank=True, null=True)
     situacion_de_trabajo = models.CharField(max_length=100, blank=True, null=True)

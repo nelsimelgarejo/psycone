@@ -1,7 +1,7 @@
 from django.http.response import JsonResponse
 from django.shortcuts import redirect, render, get_object_or_404
 from sentirsebien.models import DataUNFV, Perfil, FichaSociodemografica, ComponenteBienestar, ResultadoPerfil
-from sentirsebien.forms import FichaSociodemograficaForm
+from sentirsebien.forms import FichaEstudianteForm
 from sentirsebien.models import topicos
 
 # Create your views here.
@@ -52,7 +52,7 @@ def home(request):
 def ficha_sociodemografica(request):
     perfil = get_object_or_404(Perfil, usuario__username = request.user)
     if request.method == 'POST':
-        form = FichaSociodemograficaForm(request.POST)
+        form = FichaEstudianteForm(request.POST)
         if form.is_valid():
             ficha =  form.save(commit=False)
             ficha.perfil = perfil
@@ -60,12 +60,18 @@ def ficha_sociodemografica(request):
             
     return redirect('home')
 
-def ficha_form(request):
-    return render(request, 'dashboard/ficha_form.html')
 
 def ver_perfil(request):
     perfil = get_object_or_404(Perfil, usuario__username = request.user)
     ficha = get_object_or_404(FichaSociodemografica, perfil = perfil)
+
+    if request.method == 'POST':
+        form = FichaEstudianteForm(request.POST, instance=ficha)
+        if form.is_valid():
+            ficha =  form.save(commit=False)
+            ficha.perfil = perfil
+            ficha.save()
+            return redirect('ver_perfil')
 
     return render(request, 'dashboard/perfil.html', {'perfil':perfil, 'ficha': ficha})
 

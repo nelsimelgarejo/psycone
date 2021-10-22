@@ -17,10 +17,9 @@ urlpatterns = [
     path('codigo/universitario/validacion', usuarios.codigo_universitario, name='codigo_universitario'),
     path('dni/usuario/validacion', usuarios.dni_usuario, name='dni_usuario'),
     
-    #Bashboard
+    #Dashboard
     path('home', dashboard.home, name='home'),
     path('ficha/sociodemografica', dashboard.ficha_sociodemografica, name='ficha_sociodemografica'),
-    path('ficha/form', dashboard.ficha_form, name='ficha_form'),
     path('perfil', dashboard.ver_perfil, name='ver_perfil'),
     path('resultados', dashboard.ver_resultados, name='ver_resultados'),
     path('send/resultados/json', dashboard.get_resultados_json, name='get_resultados_json'),

@@ -15,7 +15,13 @@ class PerfilForm(forms.ModelForm):
         model = Perfil
         fields = ['universidad', 'tipo_usuario', 'dni']
 
-class FichaSociodemograficaForm(forms.ModelForm):
+class FichaEstudianteForm(forms.ModelForm):
+    class Meta:
+        model = FichaSociodemografica
+        fields = '__all__'
+        exclude = ['id', 'perfil', 'anio_ingreso', 'facultad', 'escuela']
+
+class FichaOtroForm(forms.ModelForm):
     class Meta:
         model = FichaSociodemografica
         fields = '__all__'

@@ -44,11 +44,8 @@
 <div class="row clearfix">
     <div class="col-lg-4 col-md-12">
         <div class="card">
-            <img class="card-img-top"
-                src="https://userscontent2.emaze.com/images/c50c5da0-160c-4d84-a466-d12db2938664/637de0d2fbf5b15f10d42c27ea3cb264.jpg"
-                alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">{{perfil.usuario.get_full_name}}</h5>
+                <h5 class="card-title"><b>{{perfil.usuario.get_full_name}}</b></h5>
                 <p class="card-text"><b>AÑO DE INGRESO:</b> {{ficha.anio_ingreso}}</p>
                 <p class="card-text"><b>FACULTAD:</b> {{ficha.facultad}} </p>
                 <p class="card-text"><b>ESCUELA:</b> {{ficha.escuela}} </p>
@@ -78,42 +75,46 @@
                 </li>
             </ul>
         </div>
+
+
+        <div class="card text-center">
+            <div class="card-body widgets1">
+                <div class="details">
+                    <h6 class="mb-0 font600"><b>Tipo de usuario:</b></h6>
+                    <span class="mb-0">{{perfil.get_tipo_usuario_display}}</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="card text-center">
+            <div class="card-body widgets1">
+                <div class="details">
+                    <h6 class="mb-0 font600"><b>Universidad</b></h6>
+                    <span class="mb-0">{{perfil.get_universidad_display}}</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="card text-center">
+            <div class="card-body widgets1">
+                <div class="details">
+                    <h6 class="mb-0 font600"><b>Código UNFV</b></h6>
+                    <span class="mb-0">{{perfil.codigo_universitario}}</span>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
     <div class="col-lg-8 col-md-12">
         <div class="row">
-            <div class="col-xl-4 col-lg-4 col-sm-6">
-                <div class="card text-center">
-                    <div class="card-body widgets1">
-                        <div class="details">
-                            <h6 class="mb-0 font600"><b>Tipo de usuario:</b></h6>
-                            <span class="mb-0">{{perfil.get_tipo_usuario_display}}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-xl-4 col-lg-4 col-sm-6">
-                <div class="card text-center">
-                    <div class="card-body widgets1">
-                        <div class="details">
-                            <h6 class="mb-0 font600"><b>Universidad</b></h6>
-                            <span class="mb-0">{{perfil.get_universidad_display}}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-xl-4 col-lg-4 col-sm-12">
-                <div class="card text-center">
-                    <div class="card-body widgets1">
-                        <div class="details">
-                            <h6 class="mb-0 font600"><b>Código UNFV</b></h6>
-                            <span class="mb-0">{{perfil.codigo_universitario}}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
@@ -122,300 +123,39 @@
                     aria-controls="pills-blog" aria-selected="true">Ficha sociodemográfica</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-timeline-tab" data-toggle="pill" href="#pills-timeline" role="tab"
-                    aria-controls="pills-timeline" aria-selected="true">Timeline</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-                    aria-controls="pills-profile" aria-selected="false">Profile</a>
+                    aria-controls="pills-profile" aria-selected="false">Perfil</a>
             </li>
         </ul>
-
         <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade" id="pills-timeline" role="tabpanel" aria-labelledby="pills-timeline-tab">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Activity</h3>
-                        <div class="card-options">
-                            <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i
-                                    class="fe fe-chevron-up"></i></a>
-                            <a href="#" class="card-options-fullscreen" data-toggle="card-fullscreen"><i
-                                    class="fe fe-maximize"></i></a>
-                            <a href="#" class="card-options-remove" data-toggle="card-remove"><i
-                                    class="fe fe-x"></i></a>
-                            <div class="item-action dropdown ml-2">
-                                <a href="javascript:void(0)" data-toggle="dropdown"><i
-                                        class="fe fe-more-vertical"></i></a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="javascript:void(0)" class="dropdown-item"><i
-                                            class="dropdown-icon fa fa-eye"></i> View Details </a>
-                                    <a href="javascript:void(0)" class="dropdown-item"><i
-                                            class="dropdown-icon fa fa-share-alt"></i> Share </a>
-                                    <a href="javascript:void(0)" class="dropdown-item"><i
-                                            class="dropdown-icon fa fa-cloud-download"></i> Download</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a href="javascript:void(0)" class="dropdown-item"><i
-                                            class="dropdown-icon fa fa-copy"></i> Copy to</a>
-                                    <a href="javascript:void(0)" class="dropdown-item"><i
-                                            class="dropdown-icon fa fa-folder"></i> Move to</a>
-                                    <a href="javascript:void(0)" class="dropdown-item"><i
-                                            class="dropdown-icon fa fa-edit"></i> Rename</a>
-                                    <a href="javascript:void(0)" class="dropdown-item"><i
-                                            class="dropdown-icon fa fa-trash"></i> Delete</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="timeline_item ">
-                            <img class="tl_avatar" src="assets/images/xs/avatar1.jpg" alt="" />
-                            <span><a href="javascript:void(0);">Elisse Joson</a> San Francisco, CA <small
-                                    class="float-right text-right">20-April-2019 - Today</small></span>
-                            <h6 class="font600">Hello, 'Im a single div responsive timeline without media Queries!</h6>
-                            <div class="msg">
-                                <p>I'm speaking with myself, number one, because I have a very good brain and I've said
-                                    a lot of things. I write the best placeholder text, and I'm the biggest developer on
-                                    the web card she has is the Lorem card.</p>
-                                <a href="javascript:void(0);" class="mr-20 text-muted"><i
-                                        class="fa fa-heart text-pink"></i> 12 Love</a>
-                                <a class="text-muted" role="button" data-toggle="collapse" href="#collapseExample"
-                                    aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-comments"></i>
-                                    1 Comment</a>
-                                <div class="collapse p-4 section-gray" id="collapseExample">
-                                    <form class="well">
-                                        <div class="form-group">
-                                            <textarea rows="2" class="form-control no-resize"
-                                                placeholder="Enter here for tweet..."></textarea>
-                                        </div>
-                                        <button class="btn btn-primary">Submit</button>
-                                    </form>
-                                    <ul class="recent_comments list-unstyled mt-4 mb-0">
-                                        <li>
-                                            <div class="avatar_img">
-                                                <img class="rounded img-fluid" src="assets/images/xs/avatar4.jpg"
-                                                    alt="">
-                                            </div>
-                                            <div class="comment_body">
-                                                <h6>Donald Gardner <small class="float-right font-14">Just now</small>
-                                                </h6>
-                                                <p>Lorem ipsum Veniam aliquip culpa laboris minim tempor</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline_item ">
-                            <img class="tl_avatar" src="assets/images/xs/avatar4.jpg" alt="" />
-                            <span><a href="javascript:void(0);" title="">Dessie Parks</a> Oakland, CA <small
-                                    class="float-right text-right">19-April-2019 - Yesterday</small></span>
-                            <h6 class="font600">Oeehhh, that's awesome.. Me too!</h6>
-                            <div class="msg">
-                                <p>I'm speaking with myself, number one, because I have a very good brain and I've said
-                                    a lot of things. on the web by far... While that's mock-ups and this is politics,
-                                    are they really so different? I think the only card she has is the Lorem card.</p>
-                                <div class="timeline_img mb-20">
-                                    <img class="width100" src="assets/images/gallery/1.jpg" alt="Awesome Image">
-                                    <img class="width100" src="assets/images/gallery/2.jpg" alt="Awesome Image">
-                                </div>
-                                <a href="javascript:void(0);" class="mr-20 text-muted"><i
-                                        class="fa fa-heart text-pink"></i> 23 Love</a>
-                                <a class="text-muted" role="button" data-toggle="collapse" href="#collapseExample1"
-                                    aria-expanded="false" aria-controls="collapseExample1"><i
-                                        class="fa fa-comments"></i> 2 Comment</a>
-                                <div class="collapse p-4 section-gray" id="collapseExample1">
-                                    <form class="well">
-                                        <div class="form-group">
-                                            <textarea rows="2" class="form-control no-resize"
-                                                placeholder="Enter here for tweet..."></textarea>
-                                        </div>
-                                        <button class="btn btn-primary">Submit</button>
-                                    </form>
-                                    <ul class="recent_comments list-unstyled mt-4 mb-0">
-                                        <li>
-                                            <div class="avatar_img">
-                                                <img class="rounded img-fluid" src="assets/images/xs/avatar4.jpg"
-                                                    alt="">
-                                            </div>
-                                            <div class="comment_body">
-                                                <h6>Donald Gardner <small class="float-right font-14">Just now</small>
-                                                </h6>
-                                                <p>Lorem ipsum Veniam aliquip culpa laboris minim tempor</p>
-                                                <div class="timeline_img mb-20">
-                                                    <img class="width150" src="assets/images/gallery/7.jpg"
-                                                        alt="Awesome Image">
-                                                    <img class="width150" src="assets/images/gallery/8.jpg"
-                                                        alt="Awesome Image">
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="avatar_img">
-                                                <img class="rounded img-fluid" src="assets/images/xs/avatar3.jpg"
-                                                    alt="">
-                                            </div>
-                                            <div class="comment_body">
-                                                <h6>Dessie Parks <small class="float-right font-14">1min ago</small>
-                                                </h6>
-                                                <p>It is a long established fact that a reader will be distracted by the
-                                                    readable content of a page when looking</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline_item ">
-                            <img class="tl_avatar" src="assets/images/xs/avatar7.jpg" alt="" />
-                            <span><a href="javascript:void(0);" title="">Rochelle Barton</a> San Francisco, CA <small
-                                    class="float-right text-right">12-April-2019</small></span>
-                            <h6 class="font600">An Engineer Explains Why You Should Always Order the Larger Pizza</h6>
-                            <div class="msg">
-                                <p>I'm speaking with myself, number one, because I have a very good brain and I've said
-                                    a lot of things. I write the best placeholder text, and I'm the biggest developer on
-                                    the web by far... While that's mock-ups and this is politics, is the Lorem card.</p>
-                                <a href="javascript:void(0);" class="mr-20 text-muted"><i
-                                        class="fa fa-heart text-pink"></i> 7 Love</a>
-                                <a class="text-muted" role="button" data-toggle="collapse" href="#collapseExample2"
-                                    aria-expanded="false" aria-controls="collapseExample2"><i
-                                        class="fa fa-comments"></i> 1 Comment</a>
-                                <div class="collapse p-4 section-gray" id="collapseExample2">
-                                    <form class="well">
-                                        <div class="form-group">
-                                            <textarea rows="2" class="form-control no-resize"
-                                                placeholder="Enter here for tweet..."></textarea>
-                                        </div>
-                                        <button class="btn btn-primary">Submit</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Edit Profile</h3>
-                        <div class="card-options">
-                            <a href="#" class="card-options-fullscreen" data-toggle="card-fullscreen"><i
-                                    class="fe fe-maximize"></i></a>
-                            <a href="#" class="card-options-remove" data-toggle="card-remove"><i
-                                    class="fe fe-x"></i></a>
-                            <div class="item-action dropdown ml-2">
-                                <a href="javascript:void(0)" data-toggle="dropdown"><i
-                                        class="fe fe-more-vertical"></i></a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="javascript:void(0)" class="dropdown-item"><i
-                                            class="dropdown-icon fa fa-eye"></i> View Details </a>
-                                    <a href="javascript:void(0)" class="dropdown-item"><i
-                                            class="dropdown-icon fa fa-share-alt"></i> Share </a>
-                                    <a href="javascript:void(0)" class="dropdown-item"><i
-                                            class="dropdown-icon fa fa-cloud-download"></i> Download</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a href="javascript:void(0)" class="dropdown-item"><i
-                                            class="dropdown-icon fa fa-copy"></i> Copy to</a>
-                                    <a href="javascript:void(0)" class="dropdown-item"><i
-                                            class="dropdown-icon fa fa-folder"></i> Move to</a>
-                                    <a href="javascript:void(0)" class="dropdown-item"><i
-                                            class="dropdown-icon fa fa-edit"></i> Rename</a>
-                                    <a href="javascript:void(0)" class="dropdown-item"><i
-                                            class="dropdown-icon fa fa-trash"></i> Delete</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="card-body">
-                        <div class="row clearfix">
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label class="form-label">Company</label>
-                                    <input type="text" class="form-control" disabled="" placeholder="Company"
-                                        value="Epic Theme">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <div class="form-group">
-                                    <label class="form-label">Username</label>
-                                    <input type="text" class="form-control" placeholder="Username" value="michael23">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4">
-                                <div class="form-group">
-                                    <label class="form-label">Email address</label>
-                                    <input type="email" class="form-control" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">First Name</label>
-                                    <input type="text" class="form-control" placeholder="Company" value="Jane">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Last Name" value="Pearson">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="form-label">Address</label>
-                                    <input type="text" class="form-control" placeholder="Home Address"
-                                        value="455 S. Airport St. Moncks Corner">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4">
-                                <div class="form-group">
-                                    <label class="form-label">City</label>
-                                    <input type="text" class="form-control" placeholder="City" value="New York">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <div class="form-group">
-                                    <label class="form-label">Postal Code</label>
-                                    <input type="number" class="form-control" placeholder="ZIP Code">
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label class="form-label">Country</label>
-                                    <select class="form-control custom-select">
-                                        <option value="">USA</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group mb-0">
-                                    <label class="form-label">About Me</label>
-                                    <textarea rows="5" class="form-control"
-                                        placeholder="Here can be your description">Oh so, your weak rhyme You doubt I'll bother, reading into it I'll probably won't, left to my own devices But that's the difference in our opinions.</textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer text-right">
-                        <button type="submit" class="btn btn-primary">Update Profile</button>
+
                     </div>
                 </div>
             </div>
+
             <div class="tab-pane fade show active" id="pills-blog" role="tabpanel" aria-labelledby="pills-blog-tab">
                 <div class="card">
                     <div class="card-body">
                         <div class="new_post text-center">
-                            <form method="POST" autocomplete="off" action="{% url 'ficha_sociodemografica' %}"
-                                id="ficha_sociodemografica">
+                            <form method="POST" autocomplete="off" id="ficha_sociodemografica">
                                 {% csrf_token %}
 
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="anio_estudio_actual">Año de estudio actual:</label>
+
                                             <select class="form-control" name="anio_estudio_actual"
                                                 id="anio_estudio_actual" required>
+                                                {% if ficha.anio_estudio_actual %}
+                                                <option value="{{ficha.anio_estudio_actual}}" selected>
+                                                    {{ficha.get_anio_estudio_actual_display}}</option>
+                                                {% else %}
                                                 <option value="">--------------</option>
+                                                {% endif %}
                                                 <option value="anio1">1 año</option>
                                                 <option value="anio2">2 año</option>
                                                 <option value="anio3">3 año</option>
@@ -424,11 +164,38 @@
                                                 <option value="anio6">6 año</option>
                                                 <option value="egresado">Egresado</option>
                                             </select>
+
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <label for="inlineRadio1">¿Es becario?</label> <br>
+
+                                        {% if ficha.is_becario != None %}
+                                        {% if ficha.is_becario %}
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="is_becario"
+                                                id="inlineRadio1" value="true" required checked>
+                                            <label class="form-check-label" for="inlineRadio1">Sí</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input ml-4" type="radio" name="is_becario"
+                                                id="inlineRadio2" value="false" required>
+                                            <label class="form-check-label" for="inlineRadio2">No</label>
+                                        </div>
+                                        {% else %}
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="is_becario"
+                                                id="inlineRadio1" value="true" required checked>
+                                            <label class="form-check-label" for="inlineRadio1">Sí</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input ml-4" type="radio" name="is_becario"
+                                                id="inlineRadio2" value="false" required checked>
+                                            <label class="form-check-label" for="inlineRadio2">No</label>
+                                        </div>
+                                        {% endif %}
+                                        {% else %}
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="is_becario"
                                                 id="inlineRadio1" value="true" required>
@@ -439,11 +206,39 @@
                                                 id="inlineRadio2" value="false" required>
                                             <label class="form-check-label" for="inlineRadio2">No</label>
                                         </div>
+                                        {% endif %}
+
+
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="inlineRadioSex">Sexo</label> <br>
+                                            {% if ficha.sexo != None %}
+                                            {% if ficha.sexo == 'mujer' %}
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="sexo"
+                                                    id="inlineRadioSex" value="mujer" required checked>
+                                                <label class="form-check-label" for="inlineRadioSex">Mujer</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input ml-4" type="radio" name="sexo"
+                                                    id="inlineRadioSex2" value="hombre" required>
+                                                <label class="form-check-label" for="inlineRadioSex2">Hombre</label>
+                                            </div>
+                                            {% else %}
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="sexo"
+                                                    id="inlineRadioSex" value="mujer" required>
+                                                <label class="form-check-label" for="inlineRadioSex">Mujer</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input ml-4" type="radio" name="sexo"
+                                                    id="inlineRadioSex2" value="hombre" required checked>
+                                                <label class="form-check-label" for="inlineRadioSex2">Hombre</label>
+                                            </div>
+                                            {% endif %}
+                                            {% else %}
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="sexo"
                                                     id="inlineRadioSex" value="mujer" required>
@@ -454,6 +249,7 @@
                                                     id="inlineRadioSex2" value="hombre" required>
                                                 <label class="form-check-label" for="inlineRadioSex2">Hombre</label>
                                             </div>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -463,7 +259,12 @@
                                         <div class="form-group">
                                             <label for="genero">Género:</label>
                                             <select class="form-control" id="genero" name="genero" required>
+                                                {% if ficha.genero %}
+                                                <option value="{{ficha.genero}}" selected>
+                                                    {{ficha.genero|upper}}</option>
+                                                {% else %}
                                                 <option value="">--------------</option>
+                                                {% endif %}
                                                 <option value="heterosexual">Heterosexual</option>
                                                 <option value="homosexual">Homosexual</option>
                                                 <option value="lesbiana">Lesbiana</option>
@@ -480,7 +281,12 @@
                                         <div class="form-group">
                                             <label for="estado_civil">Estado civil:</label>
                                             <select class="form-control" id="estado_civil" name="estado_civil" required>
+                                                {% if ficha.estado_civil %}
+                                                <option value="{{ficha.estado_civil}}" selected>
+                                                    {{ficha.estado_civil|upper}}</option>
+                                                {% else %}
                                                 <option value="">--------------</option>
+                                                {% endif %}
                                                 <option value="soltero">Soltero</option>
                                                 <option value="soltero_hijos">Soltero con hijos</option>
                                                 <option value="conviviente">Conviviente</option>
@@ -496,7 +302,12 @@
                                         <div class="form-group">
                                             <label for="religion">Religión:</label>
                                             <select class="form-control" name="religion" id="religion" required>
+                                                {% if ficha.religion %}
+                                                <option value="{{ficha.religion}}" selected>
+                                                    {{ficha.religion|upper}}</option>
+                                                {% else %}
                                                 <option value="">--------------</option>
+                                                {% endif %}
                                                 <option value="catolica">Católica</option>
                                                 <option value="adventista">Adventista</option>
                                                 <option value="agnostico">Agnóstico</option>
@@ -575,7 +386,12 @@
                                             <label for="institucion_procedencia">Colegio de procedencia:</label>
                                             <select class="form-control" name="tipo_colegio"
                                                 id="institucion_procedencia" required>
+                                                {% if ficha.tipo_colegio %}
+                                                <option value="{{ficha.tipo_colegio}}" selected>
+                                                    {{ficha.tipo_colegio|upper}}</option>
+                                                {% else %}
                                                 <option value="">--------------</option>
+                                                {% endif %}
                                                 <option value="privado">Privado</option>
                                                 <option value="estatal">Estatal</option>
                                                 <option value="otro">Otro</option>
@@ -586,16 +402,33 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="nacionalidad">Nacionalidad:</label>
-                                            <select class="form-control" name="nacionalidad" id="nacionalidad" required>
-
+                                            <select class="form-control" name="nacionalidad" required>
+                                                {% if ficha.nacionalidad %}
+                                                <option value="{{ficha.nacionalidad}}" selected>
+                                                    {{ficha.get_nacionalidad_display|upper}}</option>
+                                                {% else %}
+                                                <option value="">--------------</option>
+                                                {% endif %}
+                                                <option value="peru">Perú</option>
+                                                <option value="chile">Chile</option>
+                                                <option value="paraguay">Paraguay</option>
+                                                <option value="colombia">Colombia</option>
+                                                <option value="venezuela">Venezuela</option>
+                                                <option value="otros">Otros</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label for="tiempo_residencia">Tiempo de residencia (en años):</label>
+                                            {% if ficha.tiempo_lugar_residencia %}
+                                            <input type="number" class="form-control" name="tiempo_lugar_residencia"
+                                                id="tiempo_residencia" value="{{ficha.tiempo_lugar_residencia}}"
+                                                required>
+                                            {% else %}
                                             <input type="number" class="form-control" name="tiempo_lugar_residencia"
                                                 id="tiempo_residencia" required>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -604,6 +437,31 @@
                                     <div class="col-md-6">
                                         <div class="form-group text-center">
                                             <label for="inlineRadioVivesSolo">¿Vives solo(a)?:</label> <br>
+                                            {% if ficha.vives_solo != None %}
+                                            {% if ficha.sexo %}
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="vives_solo"
+                                                    id="inlineRadioVivesSolo" value="true" required checked>
+                                                <label class="form-check-label" for="inlineRadioVivesSolo">Sí</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input ml-4" type="radio" name="vives_solo"
+                                                    id="inlineRadioVivesSolo2" value="false" required>
+                                                <label class="form-check-label" for="inlineRadioVivesSolo2">No</label>
+                                            </div>
+                                            {% else %}
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="vives_solo"
+                                                    id="inlineRadioVivesSolo" value="true" required>
+                                                <label class="form-check-label" for="inlineRadioVivesSolo">Sí</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input ml-4" type="radio" name="vives_solo"
+                                                    id="inlineRadioVivesSolo2" value="false" required checked>
+                                                <label class="form-check-label" for="inlineRadioVivesSolo2">No</label>
+                                            </div>
+                                            {% endif %}
+                                            {% else %}
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="vives_solo"
                                                     id="inlineRadioVivesSolo" value="true" required>
@@ -614,13 +472,19 @@
                                                     id="inlineRadioVivesSolo2" value="false" required>
                                                 <label class="form-check-label" for="inlineRadioVivesSolo2">No</label>
                                             </div>
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="religion">¿En la situación de aislamiento vive con?</label>
+                                            <label for="religion">¿En la situación de aislamiento vivo?</label>
                                             <select class="form-control" id="religion" name="vive_con" required>
+                                                {% if ficha.vive_con %}
+                                                <option value="{{ficha.vive_con}}" selected>
+                                                    {{ficha.get_vive_con_display|upper}}</option>
+                                                {% else %}
                                                 <option value="">--------------</option>
+                                                {% endif %}
                                                 <option value="solo">Solo (a)</option>
                                                 <option value="pareja">Con mi pareja</option>
                                                 <option value="familia">Con mi familia (padres y hermanos)</option>
@@ -638,7 +502,12 @@
                                             <label for="nivel_socioeconomico">Nivel socioeconómico:</label>
                                             <select class="form-control" name="nivel_socioeconomico"
                                                 id="nivel_socioeconomico" required>
+                                                {% if ficha.nivel_socioeconomico %}
+                                                <option value="{{ficha.nivel_socioeconomico}}" selected>
+                                                    {{ficha.nivel_socioeconomico|upper}}</option>
+                                                {% else %}
                                                 <option value="">--------------</option>
+                                                {% endif %}
                                                 <option value="alto">Alto</option>
                                                 <option value="medio_alto">Medio/alto</option>
                                                 <option value="medio">Medio</option>
@@ -647,13 +516,18 @@
                                             </select>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label for="vive_actualmente">¿Con cuántas personas viven actualmente?
                                                 (contándote)</label>
+                                            {% if ficha.con_cuantos_vives %}
+                                            <input type="number" class="form-control" name="con_cuantos_vives"
+                                                id="vive_actualmente" value="{{ficha.con_cuantos_vives}}" required>
+                                            {% else %}
                                             <input type="number" class="form-control" name="con_cuantos_vives"
                                                 id="vive_actualmente" required>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -665,7 +539,12 @@
                                             <label for="religion">Situación ocupacional:</label>
                                             <select class="form-control" id="religion" name="situacion_ocupacional"
                                                 required>
+                                                {% if ficha.situacion_ocupacional %}
+                                                <option value="{{ficha.situacion_ocupacional}}" selected>
+                                                    {{ficha.situacion_ocupacional|upper}}</option>
+                                                {% else %}
                                                 <option value="">--------------</option>
+                                                {% endif %}
                                                 <option value="contrato_fijo">Trabajo con contrato fijo</option>
                                                 <option value="contrato_temporal">Trabajo con contrato temporal</option>
                                                 <option value="independiente">Independiente</option>
@@ -679,7 +558,12 @@
                                             <label for="situacion_de_trabajo">Situación de trabajo:</label>
                                             <select class="form-control" id="situacion_de_trabajo"
                                                 name="situacion_de_trabajo" required>
+                                                {% if ficha.situacion_de_trabajo %}
+                                                <option value="{{ficha.situacion_de_trabajo}}" selected>
+                                                    {{ficha.situacion_de_trabajo|upper}}</option>
+                                                {% else %}
                                                 <option value="">--------------</option>
+                                                {% endif %}
                                                 <option value="no_trabajo">No trabajo</option>
                                                 <option value="parcial_en_casa">Tiempo parcial desde casa</option>
                                                 <option value="parcial_fuera_casa">Tiempo parcial fuera de casa</option>
@@ -692,9 +576,15 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="voluntariado">Horas en voluntariados:</label>
+                                            {% if ficha.horas_apoyo_voluntariado %}
+                                            <input type="number" class="form-control" id="voluntariado"
+                                                name="horas_apoyo_voluntariado"
+                                                value="{{ficha.horas_apoyo_voluntariado}}" required>
+                                            {% else %}
                                             <input type="number" class="form-control" id="voluntariado"
                                                 name="horas_apoyo_voluntariado" required>
                                             <small>Cero si no hace voluntariado</small>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -703,17 +593,28 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="fisico">Físico (cuál):</label>
+                                            {% if ficha.problema_fisico %}
+                                            <input type="text" class="form-control" name="problema_fisico" id="fisico"
+                                                maxlength="255" value="{{ficha.problema_fisico}}">
+                                            {% else %}
                                             <input type="text" class="form-control" name="problema_fisico" id="fisico"
                                                 maxlength="255">
                                             <small>Si no tuvo ninguno, dejarlo en blanco</small>
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="psicologica">Psicológica (cuál):</label>
+                                            {% if ficha.problema_psicologico %}
+                                            <input type="text" class="form-control" id="psicologica"
+                                                name="problema_psicologico" value="{{ficha.problema_psicologico}}"
+                                                maxlength="255">
+                                            {% else %}
                                             <input type="text" class="form-control" id="psicologica"
                                                 name="problema_psicologico" maxlength="255">
                                             <small>Si no tuvo ninguno, dejarlo en blanco</small>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -724,6 +625,40 @@
                                             <label for="inlineRadioAtencionPsicologica">En los últimos 3 meses tuvo una
                                                 atención
                                                 psicológica:</label> <br>
+
+                                            {% if ficha.tuvo_atencion_psicologica != None %}
+                                            {% if ficha.tuvo_atencion_psicologica %}
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio"
+                                                    name="tuvo_atencion_psicologica" id="inlineRadioAtencionPsicologica"
+                                                    value="true" required checked>
+                                                <label class="form-check-label"
+                                                    for="inlineRadioAtencionPsicologica">Sí</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input ml-4" type="radio"
+                                                    name="tuvo_atencion_psicologica"
+                                                    id="inlineRadioAtencionPsicologica2" value="false" required>
+                                                <label class="form-check-label"
+                                                    for="inlineRadioAtencionPsicologica2">No</label>
+                                            </div>
+                                            {% else %}
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio"
+                                                    name="tuvo_atencion_psicologica" id="inlineRadioAtencionPsicologica"
+                                                    value="true" required>
+                                                <label class="form-check-label"
+                                                    for="inlineRadioAtencionPsicologica">Sí</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input ml-4" type="radio"
+                                                    name="tuvo_atencion_psicologica"
+                                                    id="inlineRadioAtencionPsicologica2" value="false" required checked>
+                                                <label class="form-check-label"
+                                                    for="inlineRadioAtencionPsicologica2">No</label>
+                                            </div>
+                                            {% endif %}
+                                            {% else %}
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio"
                                                     name="tuvo_atencion_psicologica" id="inlineRadioAtencionPsicologica"
@@ -738,12 +673,40 @@
                                                 <label class="form-check-label"
                                                     for="inlineRadioAtencionPsicologica2">No</label>
                                             </div>
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group text-center">
                                             <label for="inlineRadioCovid19">Presentaste síntomas de COVID-19:</label>
                                             <br>
+                                            {% if ficha.sintomas_covid_19 != None %}
+                                            {% if ficha.sintomas_covid_19 %}
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="sintomas_covid_19"
+                                                    id="inlineRadioCovid19" value="true" required checked>
+                                                <label class="form-check-label" for="inlineRadioCovid19">Sí</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input ml-4" type="radio"
+                                                    name="sintomas_covid_19" id="inlineRadioCovid192" value="false"
+                                                    required>
+                                                <label class="form-check-label" for="inlineRadioCovid192">No</label>
+                                            </div>
+                                            {% else %}
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="sintomas_covid_19"
+                                                    id="inlineRadioCovid19" value="true" required>
+                                                <label class="form-check-label" for="inlineRadioCovid19">Sí</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input ml-4" type="radio"
+                                                    name="sintomas_covid_19" id="inlineRadioCovid192" value="false"
+                                                    required checked>
+                                                <label class="form-check-label" for="inlineRadioCovid192">No</label>
+                                            </div>
+                                            {% endif %}
+                                            {% else %}
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="sintomas_covid_19"
                                                     id="inlineRadioCovid19" value="true" required>
@@ -755,6 +718,8 @@
                                                     required>
                                                 <label class="form-check-label" for="inlineRadioCovid192">No</label>
                                             </div>
+                                            {% endif %}
+
                                         </div>
                                     </div>
                                 </div>
@@ -764,6 +729,39 @@
                                         <div class="form-group text-center">
                                             <label for="inlineRadioPresentoCovid19">Presento algún familiar síntomas de
                                                 COVID-19:</label> <br>
+                                            {% if ficha.familiar_sintomas_covid_19 != None %}
+                                            {% if ficha.familiar_sintomas_covid_19 %}
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio"
+                                                    name="familiar_sintomas_covid_19" id="inlineRadioPresentoCovid19"
+                                                    value="true" required checked>
+                                                <label class="form-check-label"
+                                                    for="inlineRadioPresentoCovid19">Sí</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input ml-4" type="radio"
+                                                    name="familiar_sintomas_covid_19" id="inlineRadioPresentoCovid192"
+                                                    value="false" required>
+                                                <label class="form-check-label"
+                                                    for="inlineRadioPresentoCovid192">No</label>
+                                            </div>
+                                            {% else %}
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio"
+                                                    name="familiar_sintomas_covid_19" id="inlineRadioPresentoCovid19"
+                                                    value="true" required>
+                                                <label class="form-check-label"
+                                                    for="inlineRadioPresentoCovid19">Sí</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input ml-4" type="radio"
+                                                    name="familiar_sintomas_covid_19" id="inlineRadioPresentoCovid192"
+                                                    value="false" required checked>
+                                                <label class="form-check-label"
+                                                    for="inlineRadioPresentoCovid192">No</label>
+                                            </div>
+                                            {% endif %}
+                                            {% else %}
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio"
                                                     name="familiar_sintomas_covid_19" id="inlineRadioPresentoCovid19"
@@ -778,6 +776,7 @@
                                                 <label class="form-check-label"
                                                     for="inlineRadioPresentoCovid192">No</label>
                                             </div>
+                                            {% endif %}
 
                                         </div>
                                     </div>
@@ -786,7 +785,12 @@
                                             <label for="fallecimiento">Falleció algún:</label>
                                             <select class="form-control" id="fallecimiento" name="tuvo_fallecimiento"
                                                 required>
+                                                {% if ficha.tuvo_fallecimiento %}
+                                                <option value="{{ficha.tuvo_fallecimiento}}" selected>
+                                                    {{ficha.tuvo_fallecimiento|upper}}</option>
+                                                {% else %}
                                                 <option value="">--------------</option>
+                                                {% endif %}
                                                 <option value="familiar">Familiar</option>
                                                 <option value="amigo">Amigo</option>
                                                 <option value="conocido">Conocido</option>
@@ -801,9 +805,14 @@
                                         <div class="form-group">
                                             <label for="fallecimiento_tiempo">Si falleció, hace cuánto tiempo fue
                                                 (meses):</label>
+                                            {% if ficha.tiempo_de_fallecimiento %}
+                                            <input type="number" class="form-control" name="tiempo_de_fallecimiento"
+                                                id="fallecimiento_tiempo" value="{{ficha.tiempo_de_fallecimiento}}">
+                                            {% else %}
                                             <input type="number" class="form-control" name="tiempo_de_fallecimiento"
                                                 id="fallecimiento_tiempo">
                                             <small>Si no es el caso, dejarlo en blanco.</small>
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -812,6 +821,39 @@
                                             <label for="inlineRadioClasesVirtuales">¿Consideras haberte adaptado a las
                                                 clases
                                                 virtuales?:</label> <br>
+                                            {% if ficha.adaptado_clases_virtuales != None %}
+                                            {% if ficha.adaptado_clases_virtuales %}
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio"
+                                                    name="adaptado_clases_virtuales" id="inlineRadioClasesVirtuales"
+                                                    value="true" required checked>
+                                                <label class="form-check-label"
+                                                    for="inlineRadioClasesVirtuales">Sí</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input ml-4" type="radio"
+                                                    name="adaptado_clases_virtuales" id="inlineRadioClasesVirtuales2"
+                                                    value="false" required>
+                                                <label class="form-check-label"
+                                                    for="inlineRadioClasesVirtuales2">No</label>
+                                            </div>
+                                            {% else %}
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio"
+                                                    name="adaptado_clases_virtuales" id="inlineRadioClasesVirtuales"
+                                                    value="true" required>
+                                                <label class="form-check-label"
+                                                    for="inlineRadioClasesVirtuales">Sí</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input ml-4" type="radio"
+                                                    name="adaptado_clases_virtuales" id="inlineRadioClasesVirtuales2"
+                                                    value="false" required checked>
+                                                <label class="form-check-label"
+                                                    for="inlineRadioClasesVirtuales2">No</label>
+                                            </div>
+                                            {% endif %}
+                                            {% else %}
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio"
                                                     name="adaptado_clases_virtuales" id="inlineRadioClasesVirtuales"
@@ -826,6 +868,7 @@
                                                 <label class="form-check-label"
                                                     for="inlineRadioClasesVirtuales2">No</label>
                                             </div>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -847,4 +890,68 @@
 {% block script %}
 <script src="{% static 'dataforms.js' %}"></script>
 <script src="{% static 'fac_escuelas.js' %}"></script>
+
+{% if ficha.nacimiento_departamento %}
+<script>
+    var dep_select = {{ ficha.nacimiento_departamento }};
+    departamentos.map(element => {
+        if (element.id_ubigeo == dep_select) {
+            $('#departarmento_nacimiento').append(`
+            <option value="${element.id_ubigeo}" selected>${element.etiqueta_ubigeo}</option>
+            `);
+        }
+    });
+
+    var provin_general = provincias[dep_select]
+    var provin_select = {{ ficha.nacimiento_provincia }}
+    provin_general.map(element => {
+        if (element.id_ubigeo == provin_select) {
+            $('#provincia_nacimiento').append(`
+            <option value="${element.id_ubigeo}" selected>${element.etiqueta_ubigeo}</option>
+            `);
+        }
+    });
+
+    var distri_general = distritos[provin_select]
+    var distri_select = {{ ficha.nacimiento_distrito }}
+    distri_general.map(element => {
+        if (element.id_ubigeo == distri_select) {
+            $('#distrito_nacimiento').append(`
+            <option value="${element.id_ubigeo}" selected>${element.etiqueta_ubigeo}</option>
+            `);
+        }
+    });
+    /*REsidencia Dependence*/
+    var dep_select = {{ ficha.residencia_departamento }};
+    departamentos.map(element => {
+        if (element.id_ubigeo == dep_select) {
+            $('#departarmento_residencia').append(`
+            <option value="${element.id_ubigeo}" selected>${element.etiqueta_ubigeo}</option>
+            `);
+        }
+    });
+
+    var provin_general = provincias[dep_select]
+    var provin_select = {{ ficha.residencia_provincia }}
+    provin_general.map(element => {
+        if (element.id_ubigeo == provin_select) {
+            $('#provincia_residencia').append(`
+            <option value="${element.id_ubigeo}" selected>${element.etiqueta_ubigeo}</option>
+            `);
+        }
+    });
+
+    var distri_general = distritos[provin_select]
+    var distri_select = {{ ficha.residencia_distrito }}
+    distri_general.map(element => {
+        if (element.id_ubigeo == distri_select) {
+            $('#distrito_residencia').append(`
+            <option value="${element.id_ubigeo}" selected>${element.etiqueta_ubigeo}</option>
+            `);
+        }
+    });
+
+</script>
+{% endif %}
+
 {% endblock script %}
