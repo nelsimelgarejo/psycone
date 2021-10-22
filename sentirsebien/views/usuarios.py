@@ -58,12 +58,12 @@ def activar_cuenta(request):
                 facultad = data_user.facultad,
                 escuela = data_user.escuela
             )
-            return render(request, 'usuarios/login.html')
-            
+
+            return JsonResponse({'error': False})
         else:
-            return JsonResponse({'error': True, 'mensaje':'Se ha enviado un correo de activación a su correo'})
+            return JsonResponse({'error': True})
     else:
-        return JsonResponse({'error': True, 'mensaje':'Existe un error en la petición'})
+        return JsonResponse({'error': True})
 
 
 def aprobar_encode(request, encoded_url):

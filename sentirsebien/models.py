@@ -80,7 +80,6 @@ class FichaSociodemografica(models.Model):
     tiempo_de_fallecimiento = models.PositiveIntegerField(default=0)
     adaptado_clases_virtuales = models.BooleanField(default=False) 
 
-
     estado = models.BooleanField(default=True)
     creado = models.DateTimeField(auto_now_add=True)
     actualizado = models.DateTimeField(auto_now=True)

@@ -10,9 +10,9 @@
     .modal {
         background: linear-gradient(270deg, #64c9ebb9, #f2a0fab9, #5de7d9ad);
         background-size: 600% 600%;
-        -webkit-animation: AnimationName 20s ease infinite;
-        -moz-animation: AnimationName 20s ease infinite;
-        animation: AnimationName 20s ease infinite;
+        -webkit-animation: AnimationName 30s ease infinite;
+        -moz-animation: AnimationName 30s ease infinite;
+        animation: AnimationName 30s ease infinite;
     }
 
     .custom-radio .custom-control-input:checked~.custom-control-label::after {
@@ -20,36 +20,6 @@
         border: 2px solid #97449e !important;
         border-radius: 15px;
         color: #97449e !important;
-    }
-
-    input[type='radio']:after {
-        width: 20px;
-        height: 20px;
-        border-radius: 20px;
-        top: -6px;
-        left: -6px;
-        position: relative;
-        background-color: #fcd7ff !important;
-        color: #fcd7ff !important;
-        content: '';
-        display: inline-block;
-        visibility: visible;
-        border: 2px solid rgb(236, 160, 255) !important;
-    }
-
-    input[type='radio']:checked:after {
-        width: 20px;
-        height: 20px;
-        border-radius: 20px;
-        color: #97449e !important;
-        top: -6px;
-        left: -6px;
-        position: relative;
-        background-color: #97449e !important;
-        content: '';
-        display: inline-block;
-        visibility: visible;
-        border: 2px solid rgb(236, 160, 255) !important;
     }
 </style>
 {% endblock style %}

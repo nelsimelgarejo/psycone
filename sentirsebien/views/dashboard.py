@@ -65,7 +65,9 @@ def ficha_form(request):
 
 def ver_perfil(request):
     perfil = get_object_or_404(Perfil, usuario__username = request.user)
-    return render(request, 'dashboard/perfil.html', {'perfil':perfil})
+    ficha = get_object_or_404(FichaSociodemografica, perfil = perfil)
+
+    return render(request, 'dashboard/perfil.html', {'perfil':perfil, 'ficha': ficha})
 
 def ver_resultados(request):
     perfil = get_object_or_404(Perfil, usuario__username = request.user)
